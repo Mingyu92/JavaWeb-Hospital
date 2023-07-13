@@ -12,6 +12,16 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    int UserID;
+    if (request.getAttribute("UserID")!= null) {
+        UserID = (int) (request.getAttribute("UserID"));
+    } else {
+        UserID = Integer.parseInt(request.getParameter("UserID"));
+    }
+//    PatientDaoImpl patientDaoImpl = new PatientDaoImpl();
+//    String Name = patientDaoImpl.find(UserID).getName();
+%>
 <html>
 <head>
     <title>更新挂号数据</title>
@@ -69,8 +79,22 @@
             background-color: #45a049;
         }
     </style>
+    <link rel="stylesheet" href="css/navbar.css">
 </head>
 <body>
+<h1>
+    桂林市医院统一预约挂号服务平台
+</h1>
+
+<div>
+    <!-- 导航栏 -->
+    <ul class="navbar">
+        <li><a href="./PatientCenter.jsp?UserID=<%= UserID %>">首页</a></li>
+        <li><a href="./PatientShow.jsp?UserID=<%= UserID %>">个人信息</a></li>
+        <li><a href="./PatientSelectHospital.jsp?UserID=<%= UserID %>">预约挂号</a></li>
+        <li><a href="./PatientSickShow.jsp?UserID=<%= UserID %>">查看挂号信息</a></li>
+    </ul>
+</div>
 <div class="container">
     <h1>更新挂号数据</h1>
     <form action="PatientSickUpdate" method="post">
