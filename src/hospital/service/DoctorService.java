@@ -36,14 +36,12 @@ public class DoctorService {
         return true;
     }
 
-    public Doctor DoctorRegister(String name,String password,String sex,int age,
+    public Doctor DoctorRegister(String name, int HospitalId, int DepartmentId, String password,String sex,int age,
                                  String phone, String part, String part2, String part3, String discript){
         Doctor doctor=new Doctor();
         doctor.setName(name);
-        DepartmentDaoimpl departmentdaoimpl = new DepartmentDaoimpl();
-        HospitalDaoImpl hospitalDaoImpl = new HospitalDaoImpl();
-        doctor.setHospitalid(hospitalDaoImpl.find(part));
-        doctor.setDepartmentid(departmentdaoimpl.find(part2));
+        doctor.setHospitalid(HospitalId);
+        doctor.setDepartmentid(DepartmentId);
         doctor.setPassword(password);
         doctor.setSex(sex);
         doctor.setAge(age);
