@@ -79,21 +79,52 @@ public class DoctorDaoImpl implements DoctorDao {
     public boolean update(Doctor doctor) {
         try {
             Connection connection = DbConnection.getConnection();
-            String sql = "update doctor set DoctorName = ?, age=?,sex=?, phone = ?, hospitalname = ?, departmentname = ?, ProfessionalTitle = ?, introduction = ?  where DoctorID=?";
+            String sql = "update doctor set DoctorName = ?, hospitalId = ?, DepartmentId = ?, age=?,sex=?, phone = ?, hospitalname = ?, departmentname = ?, ProfessionalTitle = ?, introduction = ?  where DoctorID=?";
             PreparedStatement pt = connection.prepareStatement(sql);
             pt.setString(1, doctor.getName());
-            pt.setInt(2, doctor.getAge());
-            pt.setString(3, doctor.getSex());
-            pt.setString(4, doctor.getPhone());
-            pt.setString(5, doctor.getPart());
-            pt.setString(6, doctor.getPart2());
-            pt.setString(7, doctor.getPart3());
-            pt.setString(8, doctor.getDiscript());
-            pt.setInt(9, doctor.getId());
+            pt.setInt(2,doctor.getHospitalid());
+            pt.setInt(3,doctor.getDepartmentid());
+            pt.setInt(4, doctor.getAge());
+            pt.setString(5, doctor.getSex());
+            pt.setString(6, doctor.getPhone());
+            pt.setString(7, doctor.getPart());
+            pt.setString(8, doctor.getPart2());
+            pt.setString(9, doctor.getPart3());
+            pt.setString(10, doctor.getDiscript());
+            pt.setInt(11, doctor.getId());
             return pt.executeUpdate() > 0;
         } catch (Exception var5) {
             var5.printStackTrace();
             return false;
+        }
+    }
+
+    public Doctor findByid(int id) {
+        try {
+            Connection connection = DbConnection.getConnection();
+            String sql = "select * from doctor where DoctorID=?";
+            PreparedStatement pt = connection.prepareStatement(sql);
+            pt.setInt(1, id);
+            ResultSet rs = pt.executeQuery();
+            Doctor doctor = new Doctor();
+            if (rs.next()) {
+                doctor.setId(rs.getInt("DoctorID"));
+                doctor.setName(rs.getString("DoctorName"));
+                doctor.setPassword(rs.getString("D_Password"));
+                doctor.setSex(rs.getString("sex"));
+                doctor.setAge(rs.getInt("age"));
+                doctor.setPhone(rs.getString("phone"));
+                doctor.setPart(rs.getString("hospitalname"));
+                doctor.setPart2(rs.getString("departmentname"));
+                doctor.setPart3(rs.getString("ProfessionalTitle"));
+                doctor.setDiscript(rs.getString("introduction"));
+                return doctor;
+            } else {
+                return null;
+            }
+        } catch (Exception var7) {
+            var7.printStackTrace();
+            return null;
         }
     }
 
