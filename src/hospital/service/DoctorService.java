@@ -55,7 +55,6 @@ public class DoctorService {
 
     /**
      * 显示自身信息
-     * @param phone 这里的phone可以直接由登录界面的phone传入
      *           注册界面则由传入的doctor.getId()获取
      * @return 返回医生信息
      */
