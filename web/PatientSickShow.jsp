@@ -1,4 +1,11 @@
-<% int UserID = Integer.parseInt(request.getParameter("UserID")); %><%--
+<%
+    int UserID;
+    if (request.getAttribute("UserID")!= null) {
+        UserID = (int) (request.getAttribute("UserID"));
+    } else {
+        UserID = Integer.parseInt(request.getParameter("UserID"));
+    }
+%><%--
   Created by IntelliJ IDEA.
   User: ZhangYe
   Date: 2023/7/10
@@ -16,6 +23,7 @@
 <head>
     <title>用户首页</title>
     <link rel="stylesheet" href="css/navbar.css">
+
 </head>
 <body>
 <h1>桂林市医院统一预约挂号服务平台</h1>
@@ -41,7 +49,6 @@
         <table>
             <thead>
             <tr>
-                <th>病人姓名</th>
                 <th>主治医生</th>
                 <th>预约日期</th>
                 <th>预约时间段</th>
@@ -52,13 +59,14 @@
                 <th>支付金额</th>
                 <th></th>
                 <th></th>
+                <th></th>
+
             </tr>
             </thead>
             <tbody>
             <%for (Sick s : sickList) {
             %>
             <tr>
-                <td><%= s.getP_name() %></td>
                 <td><%= s.getD_name() %></td>
                 <td><%= s.getData() %></td>
                 <td><%= s.getTime() %></td>
@@ -68,14 +76,25 @@
                 <td><%= s.getPaymentstatus() %></td>
                 <td><%= s.getPaymentamount() %></td>
                 <td>
-                    <a href="SickDelete?id=<%= s.getId() %>&choose=patient">
-                        <input type="button" value="取消">
-                    </a>
+                    <form action="PatientSickDelete" method="POST">
+                        <input type="hidden" name="UserID" value="<%= s.getPatientId() %>">
+                        <input type="hidden" name="AppointmentID" value="<%= s.getId() %>">
+                        <input type="submit" value="取消">
+                    </form>
                 </td>
                 <td>
-                    <a href="PatientSickUpdate.jsp?UserID=<%= s.getPatientId() %>&AppointmentID=<%= s.getId() %>">
-                        <input type="button" value="修改">
-                    </a>
+                    <form>
+                        <a href="PatientSickUpdate.jsp?UserID=<%= s.getPatientId() %>&AppointmentID=<%= s.getId() %>">
+                            <input type="button" value="修改" >
+                        </a>
+                    </form>
+                </td>
+                <td>
+                    <form action="PatientSickPayment" method="POST">
+                        <input type="hidden" name="UserID" value="<%= s.getPatientId() %>">
+                        <input type="hidden" name="AppointmentID" value="<%= s.getId() %>">
+                        <input type="submit" value="缴费" <%= s.getPaymentstatus().equals("已缴费") ? "disabled" : "" %>>
+                    </form>
                 </td>
             </tr>
             <% } %>
@@ -88,5 +107,10 @@
 <%--<a href="PatientSickAdd.jsp?patientId=<%= patientId %>">--%>
 <%--    <input type="button" value="新增挂号数据">--%>
 <%--</a>--%>
+<% if (request.getAttribute("Errormessage") != null) { %>
+<script>
+    showMessage("<%= request.getAttribute("Errormessage") %>");
+</script>
+<% } %>
 </body>
 </html>

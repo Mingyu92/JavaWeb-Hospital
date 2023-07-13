@@ -33,6 +33,7 @@
 
 <div>
   <h1>医院管理</h1>
+  <a href="./AdminAddHospital.jsp" class="button">新增</a>
   <%
     HospitalDaoImpl hospitaldaoimpl = new HospitalDaoImpl();
     List<Hospital> hospitalList = null;
@@ -111,7 +112,9 @@
       <table>
         <tr>
           <th>医院名称:</th>
-          <td><%= hospital.getName() %></td>
+          <td>
+            <a href="AdminDepartment.jsp?hospitalId=<%= hospital.getId() %>"> <%= hospital.getName() %> </a>
+          </td>
         </tr>
         <tr>
           <th>级别:</th>

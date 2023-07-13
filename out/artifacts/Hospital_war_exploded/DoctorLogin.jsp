@@ -64,7 +64,7 @@
         </tr>
         <tr>
             <td>
-                <a href="DoctorRegister.jsp">
+                <a href="DoctorRegister.jsp" class="lian">
                     注册
                 </a>
             </td>

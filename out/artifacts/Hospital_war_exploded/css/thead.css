@@ -1,0 +1,35 @@
+
+.center-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.center-form form {
+    background-color: #f6f6f6;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.center-form label {
+    font-weight: bold;
+}
+
+.center-form input[type="text"],
+.center-form textarea {
+    width: 300px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.center-form input[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}

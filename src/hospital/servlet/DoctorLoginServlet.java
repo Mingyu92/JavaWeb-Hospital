@@ -1,6 +1,7 @@
 package hospital.servlet;
 
 import hospital.service.DoctorService;
+import hospital.user.Doctor;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -27,12 +28,13 @@ public class DoctorLoginServlet extends HttpServlet {
         }
         String phone = req.getParameter("phone");
         String password = req.getParameter("password");
-        boolean flag=doctorService.DoctorLogin(phone,password);
-        if(flag){
+        Doctor doctor=doctorService.DoctorLogin(phone,password);
+        if(doctor != null){
             resp.getWriter().write("登录成功!");
+            int id = doctor.getId();
 
             /*转发到医生个人主页*/
-            req.setAttribute("phone",phone);
+            req.setAttribute("id",id);
             req.getRequestDispatcher("DoctorShow.jsp").forward(req,resp);
         }
         else{
