@@ -59,7 +59,9 @@
       <tbody>
       <%for (Patient patient : patientList) { %>
       <tr>
-        <td><%= patient.getName() %></td>
+        <td>
+          <a href="./AdminSick.jsp?patientID=<%= patient.getUserID() %>"><%= patient.getName() %></a>
+        </td>
         <td><%= patient.getSex() %></td>
         <td><%= patient.getAge() %></td>
         <td><%= patient.getPhoneNumber() %></td>

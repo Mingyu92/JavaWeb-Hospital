@@ -12,11 +12,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>管理员首页</title>
+    <title>医生管理</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- 引入一个js文件 -->
-    <script src="js/Docker.js"></script>
+    <script src="js/Docter.js"></script>
     <style>
         ul.navbar {
             list-style-type: none;
@@ -69,7 +69,6 @@
         <li><a href="./AdminCenter.jsp">首页</a></li>
         <li><a href="./AdminUsers.jsp">用户管理</a></li>
         <li><a href="./AdminHospitals.jsp">医院管理</a></li>
-        <li><a href="./AdminDocker.jsp">医生管理</a></li>
         <!-- 添加更多功能模块链接 -->
     </ul>
 </div>
@@ -79,8 +78,12 @@
     <%
         DoctorDaoImpl dockerdaoimpl = new DoctorDaoImpl();
         List<Doctor> dockerlist = null;
+        int hospitalId = -1;
+        int departmentId = -1;
         try {
-            dockerlist = dockerdaoimpl.findAll(); // 调用 findAll() 函数获取全部用户信息
+            hospitalId = Integer.parseInt(request.getParameter("hospitalId"));
+            departmentId = Integer.parseInt(request.getParameter("departmentId"));
+            dockerlist = dockerdaoimpl.findAll(hospitalId, departmentId); // 调用 findAll() 函数获取全部用户信息
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -90,12 +93,14 @@
         <table>
             <thead>
             <tr>
-                <th>用户名</th>
+                <th>医生姓名</th>
                 <th>性别</th>
                 <th>年龄</th>
                 <th>电话号码</th>
-                <th>邮箱地址</th>
-                <th>出生日期</th>
+                <th>所属医院</th>
+                <th>所属科室</th>
+                <th>职称</th>
+                <th>介绍</th>
                 <th>操作</th>
             </tr>
             </thead>
@@ -105,21 +110,24 @@
                 <td><%= doctor.getName() %></td>
                 <td><%= doctor.getSex() %></td>
                 <td><%= doctor.getAge() %></td>
-                <td><%= doctor.getPhoneNumber() %></td>
-                <td><%= doctor.getEmail() %></td>
-                <td><%= doctor.getDateOfBirth() %></td>
+                <td><%= doctor.getPhone() %></td>
+                <td><%= doctor.getPart() %></td>
+                <td><%= doctor.getPart2() %></td>
+                <td><%= doctor.getPart3() %></td>
+                <td><%= doctor.getDiscript() %></td>
                 <td>
                     <label>
-                        <input type="hidden" name="Id" value="<%=doctor.getUserID()%>">
+                        <input type="hidden" name="docterId" value="<%=doctor.getId()%>">
+                        <input type="hidden" name="hospitalId" value="<%=hospitalId%>">
+                        <input type="hidden" name="departmentId" value="<%=departmentId%>">
                     </label>
-                    <button class="button" type="submit" onclick="DeletePatient(<%=doctor.getUserID()%>); return false;">删除用户</button>
+                    <button class="button" type="submit" onclick="DeleteDocter('<%=hospitalId%>','<%=departmentId%>','<%=doctor.getId()%>'); return false;">删除医生</button>
                 </td>
             </tr>
             <% } %>
             </tbody>
         </table>
     </div>
-
 </div>
 
 </body>
