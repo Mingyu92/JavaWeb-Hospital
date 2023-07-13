@@ -31,6 +31,7 @@
         <li><a href="./PatientSelectHospital.jsp?UserID=<%= UserID %>">预约挂号</a></li>
         <li><a href="./PatientSickShow.jsp.jsp?UserID=<%= UserID %>">查看挂号信息</a></li>
     </ul>
+
 </div>
 
 <div>
