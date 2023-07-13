@@ -59,24 +59,25 @@ public class DoctorService {
      *           注册界面则由传入的doctor.getId()获取
      * @return 返回医生信息
      */
-    public Doctor DoctorShow(String phone){
-        return doctorDao.find(phone);
+   public Doctor DoctorShow(int id){
+        return doctorDao.findByid(id);
     }
 
-    public Doctor DoctorShow(int id){
-        return doctorDao.find(id);
-    }
-
-    public boolean DoctorUpdate(String phone,String name,String password,int age,String sex,String part){
-        Doctor doctor=doctorDao.find(phone);
+    public boolean DoctorUpdate(int id, String name, int HospitalId, int DepartmentId, int age,String sex,String phone,String Hospital,String Department,String ProfessionalTitle, String Introduction){
+        Doctor doctor=doctorDao.findByid(id);
         if(doctor==null){
             return false;
         }
         doctor.setName(name);
-        doctor.setPassword(password);
+        doctor.setHospitalid(HospitalId);
+        doctor.setDepartmentid(DepartmentId);
         doctor.setAge(age);
         doctor.setSex(sex);
-        doctor.setPart(part);
+        doctor.setPhone(phone);
+        doctor.setPart(Hospital);
+        doctor.setPart2(Department);
+        doctor.setPart3(ProfessionalTitle);
+        doctor.setDiscript(Introduction);
         return doctorDao.update(doctor);
     }
 
@@ -85,7 +86,7 @@ public class DoctorService {
      * @return 返回该科室的病人数据
      */
     public List<Sick> SickShow(int id){
-        return sickDao.docfind(id);
+        return sickDao.findAll(id);
     }
 
     public boolean SickDelete(int id){
@@ -95,7 +96,6 @@ public class DoctorService {
         }
         return sickDao.delete(id);
     }
-
     /**
      * 更新挂号信息
      * @param id 根据id查找更新
