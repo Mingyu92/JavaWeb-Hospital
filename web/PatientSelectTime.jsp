@@ -46,6 +46,7 @@
     canvas.addEventListener('click', function() {
         window.open('#', '_self');
     });
+
 </script>
 
 <div>

@@ -8,6 +8,7 @@ ctx.arc(canvas.width / 2, canvas.height / 2, 30, 0, 2 * Math.PI);
 ctx.fillStyle = 'lightblue'; // 可以更改颜色
 ctx.fill();
 
+
 // // 绘制正方形
 // ctx.beginPath();
 // const squareSize = 50;

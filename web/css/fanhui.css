@@ -23,6 +23,7 @@
     right: 10px;
     z-index: 9999;
     transform: scale(0.8); /* 缩小比例 */
+
 }
 canvas {
     border: 1px solid #000;

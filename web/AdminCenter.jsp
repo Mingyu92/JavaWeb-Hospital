@@ -34,6 +34,7 @@
 
   <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
   <a class="next" onclick="changeSlide(1)">&#10095;</a>
+
 </div>
 
 <script>
