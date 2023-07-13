@@ -60,7 +60,7 @@
             <%for (Department department : departmentList) { %>
             <tr>
                 <td>
-                    <a href="AdminDocter.jsp?departmentId=<%= department.getId() %>&hospitalId=<%= id %>"><%= department.getDepartmentname() %></a>
+                    <a href="AdminDocter.jsp?departmentId=<%= department.getDepartmentid() %>&hospitalId=<%= id %>"><%= department.getDepartmentname() %></a>
                 </td>
                 <td><%= department.getDepartmenthead() %></td>
                 <td><%= department.getIntroduction() %></td>
