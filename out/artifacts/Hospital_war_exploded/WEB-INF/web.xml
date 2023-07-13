@@ -135,6 +135,16 @@
         <url-pattern>/PatientAppointment</url-pattern>
     </servlet-mapping>
     <!--设置启动页为选择页面-->
+
+
+    <servlet>
+        <servlet-name>PatientSickDeleteServlet</servlet-name>
+        <servlet-class>hospital.servlet.PatientSickDeleteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PatientSickDeleteServlet</servlet-name>
+        <url-pattern>/PatientSickDelete</url-pattern>
+    </servlet-mapping>
     <welcome-file-list>
         <welcome-file>Choose.jsp</welcome-file>
     </welcome-file-list>
