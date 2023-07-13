@@ -150,6 +150,14 @@
         <servlet-name>PatientAppointmentServlet</servlet-name>
         <url-pattern>/PatientAppointment</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>AddHospitalServlet</servlet-name>
+        <servlet-class>hospital.servlet.AddHospitalServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddHospitalServlet</servlet-name>
+        <url-pattern>/AddHospital</url-pattern>
+    </servlet-mapping>
     <!--设置启动页为选择页面-->
 
 

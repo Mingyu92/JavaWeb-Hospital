@@ -33,6 +33,7 @@
 
 <div>
   <h1>医院管理</h1>
+  <a href="./AdminAddHospital.jsp" class="button">新增</a>
   <%
     HospitalDaoImpl hospitaldaoimpl = new HospitalDaoImpl();
     List<Hospital> hospitalList = null;
