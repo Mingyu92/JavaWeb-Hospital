@@ -86,6 +86,23 @@ public class SickDaoImpl implements SickDao {
         }
     }
 
+    public boolean update(int AppointmentID) {
+        try{
+            Connection connection=DbConnection.getConnection();
+            String sql="update appointment set PaymentStatus = ? where AppointmentID=?";
+            PreparedStatement pt=connection.prepareStatement(sql);
+            pt.setString(1,"已缴费");
+            pt.setInt(2,AppointmentID);
+            if(pt.executeUpdate()>0){
+                return true;
+            }
+            return false;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
     public boolean update(int AppointmentID, String AppointmentDate,String AppointmentTime) {
         try{
             Connection connection=DbConnection.getConnection();
@@ -135,7 +152,7 @@ public class SickDaoImpl implements SickDao {
         }
     }
 
-    public List<Sick> docfind(int id) {
+    public List<Sick> findAll(int id) {
         try{
             Connection connection=DbConnection.getConnection();
             String sql="select * from appointment where doctorid=?";
@@ -143,7 +160,7 @@ public class SickDaoImpl implements SickDao {
             pt.setInt(1,id);
             ResultSet rs=pt.executeQuery();
             List<Sick> result=new ArrayList<>();
-            if(rs.next()){
+            while(rs.next()){
                 Sick sick=new Sick();
                 sick.setId(rs.getInt("AppointmentID"));
                 sick.setPatientId(rs.getInt("patientId"));
@@ -158,9 +175,8 @@ public class SickDaoImpl implements SickDao {
                 sick.setPaymentstatus(rs.getString("PaymentStatus"));
                 sick.setPaymentamount(rs.getString("PaymentAmount"));
                 result.add(sick);
-                return result;
             }
-            return null;
+            return result;
         }catch (Exception e){
             e.printStackTrace();
             return null;

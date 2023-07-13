@@ -58,6 +58,11 @@
             background-color: #f2f2f2;
         }
     </style>
+    <script>
+        function showMessage(message) {
+            alert(message);
+        }
+    </script>
 </head>
 <body>
 <h1>桂林市医院统一预约挂号服务平台</h1>
@@ -122,9 +127,11 @@
                     </a>
                 </td>
                 <td>
-                    <a href="PatientPayment.jsp?UserID=<%= s.getPatientId() %>&AppointmentID=<%= s.getId() %>">
-                        <input type="button" value="缴费">
-                    </a>
+                    <form action="PatientSickPayment" method="POST">
+                        <input type="hidden" name="UserID" value="<%= s.getPatientId() %>">
+                        <input type="hidden" name="AppointmentID" value="<%= s.getId() %>">
+                        <input type="submit" value="缴费" <%= s.getPaymentstatus().equals("已缴费") ? "disabled" : "" %>>
+                    </form>
                 </td>
             </tr>
             <% } %>
@@ -137,5 +144,10 @@
 <%--<a href="PatientSickAdd.jsp?patientId=<%= patientId %>">--%>
 <%--    <input type="button" value="新增挂号数据">--%>
 <%--</a>--%>
+<% if (request.getAttribute("Errormessage") != null) { %>
+<script>
+    showMessage("<%= request.getAttribute("Errormessage") %>");
+</script>
+<% } %>
 </body>
 </html>
