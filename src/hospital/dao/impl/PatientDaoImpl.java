@@ -97,6 +97,23 @@ public class PatientDaoImpl implements PatientDao {
         }
     }
 
+    public boolean update(int UserID, String Password) {
+        try{
+            Connection connection=DbConnection.getConnection();
+            String sql="update patients set Password=? where UserID=?";
+            PreparedStatement pt=connection.prepareStatement(sql);
+            pt.setString(1,Password);
+            pt.setInt(2,UserID);
+            if(pt.executeUpdate()>0){
+                return true;
+            }
+            return false;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
     @Override
     public Patient find(String PhoneNumber) {
         try{
