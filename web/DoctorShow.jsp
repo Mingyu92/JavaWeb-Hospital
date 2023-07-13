@@ -57,14 +57,12 @@
                 <td><%=doctor.getPart2() %></td>
                 <td><%=doctor.getPart3()%></td>
                 <td><%=doctor.getDiscript()%></td>
-                <td>
-                    <label>
-                        <input type="hidden" name="Id" value="<%=doctor.getId()%>">
-                    </label>
+                <% } %>
                     <%--                    <button class="button" type="submit" onclick="DeletePatient(<%=doctor.getId()%>); return false;">删除用户</button>--%>
-                </td>
             </tr>
-            <% } %>
+            <label>
+                <input type="hidden" name="Id" value="<%=doctor.getId()%>">
+            </label>
             </tbody>
         </table>
     </div>
