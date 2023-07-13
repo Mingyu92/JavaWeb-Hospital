@@ -177,7 +177,14 @@
         <servlet-name>PatientSickPaymentServlet</servlet-name>
         <url-pattern>/PatientSickPayment</url-pattern>
     </servlet-mapping>
-
+    <servlet>
+        <servlet-name>PatientFoundPasswordServlet</servlet-name>
+        <servlet-class>hospital.servlet.PatientFoundPasswordServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PatientFoundPasswordServlet</servlet-name>
+        <url-pattern>/PatientFoundPassword</url-pattern>
+    </servlet-mapping>
     <welcome-file-list>
         <welcome-file>Choose.jsp</welcome-file>
     </welcome-file-list>

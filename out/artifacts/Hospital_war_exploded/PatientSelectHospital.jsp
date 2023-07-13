@@ -1,4 +1,11 @@
-<% int UserID = Integer.parseInt(request.getParameter("UserID")); %><%--
+<%
+  int UserID;
+  if (request.getAttribute("UserID")!= null) {
+    UserID = (int) (request.getAttribute("UserID"));
+  } else {
+    UserID = Integer.parseInt(request.getParameter("UserID"));
+  }
+%><%--
   Created by IntelliJ IDEA.
   User: ZhangYe
   Date: 2023/7/10

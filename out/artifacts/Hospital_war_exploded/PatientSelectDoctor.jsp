@@ -1,5 +1,10 @@
 <%
-    int UserID = Integer.parseInt(request.getParameter("UserID"));
+    int UserID;
+    if (request.getAttribute("UserID")!= null) {
+        UserID = (int) (request.getAttribute("UserID"));
+    } else {
+        UserID = Integer.parseInt(request.getParameter("UserID"));
+    }
     int HospitalID = Integer.parseInt(request.getParameter("HospitalID"));
     int DepartmentID = Integer.parseInt(request.getParameter("DepartmentID"));
 %><%--
