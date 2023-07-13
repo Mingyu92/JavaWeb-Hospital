@@ -63,6 +63,7 @@ public class PatientService {
         if(patient==null){
             return false;
         }
+        patient.setUserID(UserID);
         patient.setName(Name);
         patient.setSex(Sex);
         patient.setAge(Age);

@@ -23,6 +23,7 @@
 </div>
 <form action="PatientUpdate" method="post">
     <table>
+        <input type="hidden" name="UserID" value="<%= request.getParameter("UserID") %>">
         <%--第一行:姓名--%>
         <tr>
             <td><label for="name">姓名</label> </td>

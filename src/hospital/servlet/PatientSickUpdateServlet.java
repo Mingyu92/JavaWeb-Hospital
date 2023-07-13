@@ -29,6 +29,7 @@ public class PatientSickUpdateServlet extends HttpServlet {
         }
         else {
             req.setAttribute("Errormessage", "挂号数据更新失败!");
+            req.setAttribute("UserID", UserID);
             req.getRequestDispatcher("PatientSickShow.jsp").forward(req, resp);
         }
     }
