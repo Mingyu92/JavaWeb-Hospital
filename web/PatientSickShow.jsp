@@ -64,6 +64,11 @@
         th {
             background-color: #f2f2f2;
         }
+
+        form {
+            position: relative;
+            top: 10px; /* 向下偏移50像素 */
+        }
     </style>
     <script>
         function showMessage(message) {
@@ -129,9 +134,11 @@
                     </form>
                 </td>
                 <td>
-                    <a href="PatientSickUpdate.jsp?UserID=<%= s.getPatientId() %>&AppointmentID=<%= s.getId() %>">
-                        <input type="button" value="修改">
-                    </a>
+                    <form>
+                        <a href="PatientSickUpdate.jsp?UserID=<%= s.getPatientId() %>&AppointmentID=<%= s.getId() %>">
+                            <input type="button" value="修改" >
+                        </a>
+                    </form>
                 </td>
                 <td>
                     <form action="PatientSickPayment" method="POST">
