@@ -59,6 +59,7 @@
 
         <%
             /*获取从登录页面和注册页面传入的id*/
+            int id = Integer.parseInt(request.getParameter("id"));
             List<Department> departmentList = adminService.AllDepartment();
         %>
 
