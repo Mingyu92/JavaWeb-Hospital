@@ -70,12 +70,10 @@
             <td colspan="2"><span class="password-message" id="passwordMessage"></span></td>
         </tr>
         <!-- 第四行:年龄 -->
-        <tr>
-            <td><label for="age">年龄</label></td>
-            <td>
-                <input type="range" name="age" id="age" min="0" max="100" oninput="updateAgeValue(this.value)">
-            </td>
-            <td><span id="ageValue"></span></td>
+            <tr>
+                <td><label for="age">年龄</label></td>
+                <td><input type="text" name="age" id="age"></td>
+            </tr>
             <%--第五行:性别--%>
         <tr>
             <td><input type="radio" name="sex" value="男">男</td>
