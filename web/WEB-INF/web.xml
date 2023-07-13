@@ -190,7 +190,30 @@
         <servlet-name>PatientFoundPasswordServlet</servlet-name>
         <url-pattern>/PatientFoundPassword</url-pattern>
     </servlet-mapping>
-
+    <servlet>
+        <servlet-name>DocterRemoveServlet</servlet-name>
+        <servlet-class>hospital.servlet.DocterRemoveServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DocterRemoveServlet</servlet-name>
+        <url-pattern>/DocterRemove</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>SickRemoveServlet</servlet-name>
+        <servlet-class>hospital.servlet.SickRemoveServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SickRemoveServlet</servlet-name>
+        <url-pattern>/SickRemove</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UpdateSickServlet</servlet-name>
+        <servlet-class>hospital.servlet.UpdateSickServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateSickServlet</servlet-name>
+        <url-pattern>/UpdateSick</url-pattern>
+    </servlet-mapping>
     <!--设置启动页为选择页面-->
     <welcome-file-list>
         <welcome-file>Choose.jsp</welcome-file>
