@@ -28,6 +28,18 @@
         .captcha-container input {
             margin-left: 8px;
         }
+
+        .lian2 {
+            font-size: large;
+            text-decoration: none;
+            font-weight: bold; /* 将字体加粗 */
+            float: right;
+            color: #409eff;
+        }
+
+        .lian2:hover {
+            color: #00B38F;
+        }
     </style>
     <script>
         // Define a function to show password error alert
@@ -75,10 +87,9 @@
             <td><input type="reset" value="重置"></td>
         </tr>
         <tr>
-            <td>
-                <a href="PatientRegister.jsp">
-                    注册
-                </a>
+            <td colspan="2">
+                    <a href="PatientRegister.jsp" class="lian">注册</a>
+                    <a href="PatientFoundPassword.jsp" class="lian2">忘记密码</a>
             </td>
         </tr>
     </table>

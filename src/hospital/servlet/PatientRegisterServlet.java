@@ -38,7 +38,7 @@ public class PatientRegisterServlet extends HttpServlet {
             resp.getWriter().write("注册成功!");
             /*转发到病人个人主页*/
             req.setAttribute("UserID", UserID);
-            req.getRequestDispatcher("PatientShow.jsp").forward(req,resp);
+            req.getRequestDispatcher("PatientCenter.jsp").forward(req,resp);
         } else{
             resp.getWriter().write("注册失败!");
             resp.sendRedirect("Error.jsp");

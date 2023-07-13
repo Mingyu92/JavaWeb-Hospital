@@ -1,5 +1,10 @@
 <%
-    int UserID = Integer.parseInt(request.getParameter("UserID"));
+    int UserID;
+    if (request.getAttribute("UserID")!= null) {
+        UserID = (int) (request.getAttribute("UserID"));
+    } else {
+        UserID = Integer.parseInt(request.getParameter("UserID"));
+    }
     int HospitalID = Integer.parseInt(request.getParameter("HospitalID"));
     int DepartmentID = Integer.parseInt(request.getParameter("DepartmentID"));
     int DoctorID = Integer.parseInt(request.getParameter("DoctorID"));
@@ -20,6 +25,7 @@
 <head>
     <title>用户首页</title>
     <link rel="stylesheet" href="css/navbar.css">
+
 </head>
 <body>
 <h1>桂林市医院统一预约挂号服务平台</h1>
@@ -37,7 +43,7 @@
     <h1>选时间</h1>
     <div>
         <label for="date">选择日期:</label>
-        <input type="date" id="date" name="Date">
+        <input type="date" id="date" name="Date" min="<%= java.time.LocalDate.now() %>">
         <br><br>
     </div>
     <div>
@@ -142,6 +148,10 @@
         // Rest of the code remains the same
     }
 </script>
-
+<% if (request.getAttribute("Errormessage") != null) { %>
+<script>
+    showMessage("<%= request.getAttribute("Errormessage") %>");
+</script>
+<% } %>
 </body>
 </html>

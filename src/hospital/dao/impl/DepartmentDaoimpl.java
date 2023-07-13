@@ -163,4 +163,24 @@ public class DepartmentDaoimpl {
             return -1;
         }
     }
+
+    public Department findone(int id) {
+        try{
+            Connection connection=DbConnection.getConnection();
+            String sql="select * from department where DepartmentID=?";
+            PreparedStatement pt=connection.prepareStatement(sql);
+            pt.setInt(1,id);
+            ResultSet rs=pt.executeQuery();
+            Department department=new Department();
+            if(rs.next()){
+                department.setDepartmentid(rs.getInt("DepartmentID"));
+                department.setDepartmentname(rs.getString("DepartmentName"));
+                return department;
+            }
+            return null;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

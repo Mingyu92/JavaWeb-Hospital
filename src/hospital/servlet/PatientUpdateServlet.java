@@ -27,15 +27,17 @@ public class PatientUpdateServlet extends HttpServlet {
         String DateOfBirth= req.getParameter("DateOfBirth");
         String PhoneNumber= req.getParameter("PhoneNumber");
         int UserID = Integer.parseInt(req.getParameter("UserID"));
-        boolean flag =patientService.PatientUpdate(UserID,name,sex,age,email,idCard,DateOfBirth,PhoneNumber);
+        System.out.println(UserID);
+        boolean flag =patientService.PatientUpdate(UserID,name,sex,age,idCard,PhoneNumber,email,DateOfBirth);
         if(flag){
-            resp.getWriter().write("患者数据更新成功!");
+            req.setAttribute("Errormessage", "患者数据更新成功!");
             /*转发到病人个人主页*/
             req.setAttribute("UserID", UserID);
             req.getRequestDispatcher("PatientShow.jsp").forward(req,resp);
         } else{
-            resp.getWriter().write("患者数据更新失败!");
-            resp.sendRedirect("Error.jsp");
+            req.setAttribute("Errormessage", "患者数据更新失败!");
+            req.setAttribute("UserID", UserID);
+            req.getRequestDispatcher("PatientShow.jsp").forward(req,resp);
         }
     }
 

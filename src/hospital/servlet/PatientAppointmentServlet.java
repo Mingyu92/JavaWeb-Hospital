@@ -32,10 +32,10 @@ public class PatientAppointmentServlet extends HttpServlet {
         if (flag) {
             req.setAttribute("Errormessage", "挂号成功");
             req.setAttribute("UserID", UserID);
-            req.getRequestDispatcher("PatientCenter.jsp").forward(req, resp);
+            req.getRequestDispatcher("PatientSelectHospital.jsp").forward(req, resp);
         } else {
             req.setAttribute("Errormessage", "挂号失败");
-            req.getRequestDispatcher("PatientCenter.jsp").forward(req, resp);
+            req.getRequestDispatcher("PatientSelectHospital.jsp").forward(req, resp);
         }
     }
 }

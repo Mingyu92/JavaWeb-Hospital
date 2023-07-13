@@ -9,6 +9,11 @@
 <html>
 <head>
     <title>挂号页面</title>
+    <script>
+        function showMessage(message) {
+            alert(message);
+        }
+    </script>
 </head>
 <body>
 <form action="PatientSickAdd" method="post">
@@ -68,5 +73,10 @@
         </tr>
     </table>
 </form>
+<% if (request.getAttribute("Errormessage") != null) { %>
+<script>
+    showMessage("<%= request.getAttribute("Errormessage") %>");
+</script>
+<% } %>
 </body>
 </html>
