@@ -15,7 +15,10 @@ public class AddDepartmentServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // 从表单中获取科室信息
         int hospitalId = Integer.parseInt(request.getParameter("hospitalId"));
-        String name = request.getParameter("name");
+        int departmentId = Integer.parseInt(request.getParameter("departmentId"));
+        DepartmentDaoimpl daoimpl = new DepartmentDaoimpl();
+        Department d1 = daoimpl.findone(departmentId);
+        String name = d1.getDepartmentname();
         String head = request.getParameter("head");
         String introduction = request.getParameter("introduction");
         String time = request.getParameter("time");
@@ -23,6 +26,7 @@ public class AddDepartmentServlet extends HttpServlet {
         // 创建科室对象，并设置属性值
         Department department = new Department();
         department.setHospitalid(hospitalId);
+        department.setDepartmentid(departmentId);
         department.setDepartmentname(name);
         department.setDepartmenthead(head);
         department.setIntroduction(introduction);

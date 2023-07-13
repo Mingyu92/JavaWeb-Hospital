@@ -112,7 +112,9 @@
       <table>
         <tr>
           <th>医院名称:</th>
-          <td><%= hospital.getName() %></td>
+          <td>
+            <a href="AdminDepartment.jsp?hospitalId=<%= hospital.getId() %>"> <%= hospital.getName() %> </a>
+          </td>
         </tr>
         <tr>
           <th>级别:</th>

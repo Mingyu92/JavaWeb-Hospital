@@ -1,4 +1,6 @@
-<%--
+<%@ page import="hospital.user.Department" %>
+<%@ page import="java.util.List" %>
+<%@ page import="hospital.service.AdminService" %><%--
   Created by IntelliJ IDEA.
   User: ZhangYe
   Date: 2023/7/12
@@ -59,9 +61,22 @@
     <div>
         <form action="AddDepartment" method="POST"> <!-- 替换 /updateHospital 为你想要处理更新请求的 URL -->
             <input type="hidden" name="hospitalId" value="<%=id%>">
-            <label>科室名称:</label>
-            <input type="text" name="name"><br><br>
-
+            <%
+                /*获取所有科室id*/
+                AdminService adminService=new AdminService();
+                List<Department> departmentList = adminService.AllDepartment();
+            %>
+            <tr>
+                <td>科室名称</td>
+                <td>
+                    <select name = "departmentId">
+                        <% for (Department department : departmentList) { %>
+                        <option value="<%= department.getDepartmentid() %>">
+                            <%= department.getDepartmentname() %>
+                        </option>
+                        <% } %>
+                    </select>
+            </tr><br><br>
             <label>科室负责人:</label>
             <input type="text" name="head"><br><br>
 

@@ -158,9 +158,14 @@
         <servlet-name>AddHospitalServlet</servlet-name>
         <url-pattern>/AddHospital</url-pattern>
     </servlet-mapping>
-    <!--设置启动页为选择页面-->
-
-
+    <servlet>
+        <servlet-name>AddDepartmentServlet</servlet-name>
+        <servlet-class>hospital.servlet.AddDepartmentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddDepartmentServlet</servlet-name>
+        <url-pattern>/AddDepartment</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>PatientSickDeleteServlet</servlet-name>
         <servlet-class>hospital.servlet.PatientSickDeleteServlet</servlet-class>
@@ -169,6 +174,8 @@
         <servlet-name>PatientSickDeleteServlet</servlet-name>
         <url-pattern>/PatientSickDelete</url-pattern>
     </servlet-mapping>
+
+    <!--设置启动页为选择页面-->
     <welcome-file-list>
         <welcome-file>Choose.jsp</welcome-file>
     </welcome-file-list>
