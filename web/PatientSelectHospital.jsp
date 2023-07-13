@@ -14,49 +14,8 @@
 <html>
 <head>
   <title>用户首页</title>
-  <style>
-    ul.navbar {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      background-color: #f1f1f1;
-      overflow: hidden;
-    }
-
-    ul.navbar li {
-      float: left;
-    }
-
-    ul.navbar li a {
-      display: block;
-      color: black;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-    }
-
-    ul.navbar li a:hover:not(.active) {
-      background-color: #ddd;
-    }
-
-    .active {
-      background-color: #4CAF50;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    th, td {
-      padding: 8px;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
-    }
-
-    th {
-      background-color: #f2f2f2;
-    }
-  </style>
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/patientform.css">
 </head>
 <body>
 <h1>桂林市医院统一预约挂号服务平台</h1>
@@ -70,7 +29,7 @@
   </ul>
 </div>
 
-<div>
+<div >
   <h1>找医院</h1>
   <%
     HospitalDaoImpl hospitaldaoimpl = new HospitalDaoImpl();
@@ -82,44 +41,69 @@
     }
     assert hospitalList != null;
   %>
-  <div>
-    <table>
-      <thead>
-      <tr>
-        <th>医院名</th>
-        <th>医院等级</th>
-        <th>医院地址</th>
-        <th>联系方式</th>
-        <th>院长姓名</th>
-        <th>营业时间</th>
-        <th>运营状态</th>
-        <th>介绍</th>
-        <th></th>
-      </tr>
-      </thead>
-      <tbody>
-      <%for (Hospital hospital : hospitalList) {
-      %>
-      <tr>
-        <td><%= hospital.getName() %></td>
-        <td><%= hospital.getLevel() %></td>
-        <td><%= hospital.getAddress() %></td>
-        <td><%= hospital.getNumber() %></td>
-        <td><%= hospital.getPresidentname() %></td>
-        <td><%= hospital.getTime() %></td>
-        <td><%= hospital.getStatus() %></td>
-        <td><%= hospital.getIntroduction() %></td>
-        <td>
-          <label>
-            <input type="hidden" name="Id" value="<%=hospital.getId()%>">
-          </label>
-          <button class="button" type="submit" onclick="SelectDepartment(<%=UserID%>,<%=hospital.getId()%>); return false;">选择该医院</button>
-        </td>
-      </tr>
-      <% } %>
-      </tbody>
-    </table>
+
+<%--  <div class="card-container">--%>
+<%--    <table>--%>
+<%--      <thead>--%>
+<%--      <tr>--%>
+<%--        <th>医院名</th>--%>
+<%--        <th>医院类型</th>--%>
+<%--        <th>地址</th>--%>
+<%--        <th>电话号码</th>--%>
+<%--        <th>医院院长</th>--%>
+<%--        <th>医院创立</th>--%>
+<%--        <th>运营状态</th>--%>
+<%--        <th></th>--%>
+<%--      </tr>--%>
+<%--      </thead>--%>
+<%--      <tbody>--%>
+<%--      <%for (Hospital hospital : hospitalList) {--%>
+<%--      %>--%>
+<%--      <tr>--%>
+<%--        <td><%= hospital.getName() %></td>--%>
+<%--        <td><%= hospital.getLevel() %></td>--%>
+<%--        <td><%= hospital.getAddress() %></td>--%>
+<%--        <td><%= hospital.getNumber() %></td>--%>
+<%--        <td><%= hospital.getPresidentname() %></td>--%>
+<%--        <td><%= hospital.getTime() %></td>--%>
+<%--        <td><%= hospital.getStatus() %></td>--%>
+<%--&lt;%&ndash;        <td class="introduction"><%=hospital.getIntroduction()%></td>&ndash;%&gt;--%>
+<%--        <td>--%>
+<%--          <label>--%>
+<%--            <input type="hidden" name="Id" value="<%=hospital.getId()%>">--%>
+<%--          </label>--%>
+<%--          <button class="button" type="submit" onclick="SelectDepartment(<%=UserID%>,<%=hospital.getId()%>); return false;">选择该医院</button>--%>
+<%--        </td>--%>
+<%--      </tr>--%>
+<%--      <% } %>--%>
+<%--      </tbody>--%>
+<%--    </table>--%>
+<%--  </div>--%>
+
+
+  <div class="card-container">
+    <% for (Hospital hospital : hospitalList) { %>
+    <div class="card">
+      <div class="card-header">
+        <h2 class="card-title"><%= hospital.getName() %></h2>
+      </div>
+      <div class="card-info">
+        <p><span class="info-label">医院类型:</span> <%= hospital.getLevel() %></p>
+        <p><span class="info-label">地址:</span> <%= hospital.getAddress() %></p>
+        <p><span class="info-label">电话号码:</span> <%= hospital.getNumber() %></p>
+        <p><span class="info-label">医院院长:</span> <%= hospital.getPresidentname() %></p>
+        <p><span class="info-label">医院创立:</span> <%= hospital.getTime() %></p>
+        <p><span class="info-label">运营状态:</span> <%= hospital.getStatus() %></p>
+        <p class="info-label">简介:</p>
+        <p class="description"><%= hospital.getIntroduction() %></p>
+      </div>
+      <div class="card-footer">
+        <button class="button" type="submit" onclick="SelectDepartment(<%= UserID %>, <%= hospital.getId() %>); return false;">选择该医院</button>
+      </div>
+    </div>
+    <% } %>
   </div>
+
 </div>
 
 <script>
