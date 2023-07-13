@@ -77,13 +77,16 @@ public class PatientDaoImpl implements PatientDao {
     public boolean update(Patient patient) {
         try{
             Connection connection=DbConnection.getConnection();
-            String sql="update patient set name=?,password=?,age=?,sex=? where id=?";
+            String sql="update patients set Name=?,Sex=?,Age=?,IDCard=?,PhoneNumber=?,Email=?,DateOfBirth=? where UserID=?";
             PreparedStatement pt=connection.prepareStatement(sql);
             pt.setString(1,patient.getName());
-            pt.setString(2,patient.getPassword());
+            pt.setString(2,patient.getSex());
             pt.setInt(3,patient.getAge());
-            pt.setString(4,patient.getSex());
-            pt.setInt(5,patient.getUserID());
+            pt.setString(4,patient.getIdCard());
+            pt.setString(5,patient.getPhoneNumber());
+            pt.setString(6,patient.getEmail());
+            pt.setString(7,patient.getDateOfBirth());
+            pt.setInt(8,patient.getUserID());
             if(pt.executeUpdate()>0){
                 return true;
             }

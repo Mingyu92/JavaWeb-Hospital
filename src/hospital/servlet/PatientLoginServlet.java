@@ -25,9 +25,10 @@ public class PatientLoginServlet extends HttpServlet {
         String phoneNumber = req.getParameter("PhoneNumber");
         String password = req.getParameter("Password");
         Patient patient = patientService.PatientLogin(phoneNumber, password);
-        int UserID = patient.getUserID();
-        if (UserID != 0) {
+
+        if (patient != null) {
             resp.getWriter().write("登录成功!");
+            int UserID = patient.getUserID();
             req.setAttribute("UserID", UserID);
             req.getRequestDispatcher("PatientCenter.jsp").forward(req, resp);
         } else {
