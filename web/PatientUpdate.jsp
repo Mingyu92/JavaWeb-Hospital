@@ -11,6 +11,11 @@
     <title>更新个人信息</title>
     <link rel="stylesheet" href="./css/login.css">
     <link rel="stylesheet" href="./css/update.css">
+    <script>
+        function showMessage(message) {
+            alert(message);
+        }
+    </script>
 </head>
 <body>
 <div class="top-bar">
@@ -64,5 +69,10 @@
 </form>
 
 <div class="bottom-bar"></div>
+<% if (request.getAttribute("Errormessage") != null) { %>
+<script>
+    showMessage("<%= request.getAttribute("Errormessage") %>");
+</script>
+<% } %>
 </body>
 </html>
