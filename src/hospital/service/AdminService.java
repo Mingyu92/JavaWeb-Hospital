@@ -1,8 +1,15 @@
 package hospital.service;
 
 import hospital.dao.impl.AdminDaoImpl;
+import hospital.dbc.DbConnection;
 import hospital.user.Admin;
+import hospital.user.Department;
+import hospital.user.Hospital;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 

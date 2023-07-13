@@ -1,6 +1,7 @@
 package hospital.servlet;
 
 import hospital.service.DoctorService;
+import hospital.user.Doctor;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

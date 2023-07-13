@@ -71,10 +71,10 @@
 
 
 <div style="display: flex; justify-content: center;">
-    <a href="DoctorUpdate.jsp?phone=<%=phone%>" style="margin-right: 10px; display: flex; justify-content: center; align-items: center;">
+    <a href="DoctorUpdate.jsp?id=<%=id%>" style="margin-right: 10px; display: flex; justify-content: center; align-items: center;">
         <input type="button" class="button" value="修改个人信息">
     </a>
-    <a href="DoctorSickShow.jsp?part=<%=part%>" style="display: flex; justify-content: center; align-items: center;">
+    <a href="DoctorSickShow.jsp?id=<%=id%>" style="display: flex; justify-content: center; align-items: center;">
         <input type="button" class="button" value="病人数据">
     </a>
 </div>

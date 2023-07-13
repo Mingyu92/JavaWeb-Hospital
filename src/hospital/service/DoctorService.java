@@ -25,15 +25,15 @@ public class DoctorService {
     DoctorDaoImpl doctorDao=new DoctorDaoImpl();
     SickDaoImpl sickDao=new SickDaoImpl();
 
-    public boolean DoctorLogin(String phone,String password){
+    public Doctor DoctorLogin(String phone,String password){
         Doctor doctor=doctorDao.find(phone);
         if(doctor==null){
-            return false;
+            return null;
         }
         if(!Objects.equals(doctor.getPassword(), password)){
-            return false;
+            return null;
         }
-        return true;
+        return doctor;
     }
 
     public Doctor DoctorRegister(String name, int HospitalId, int DepartmentId, String password,String sex,int age,

@@ -1,4 +1,7 @@
-<%--
+<%@ page import="hospital.service.AdminService" %>
+<%@ page import="hospital.user.Hospital" %>
+<%@ page import="java.util.List" %>
+<%@ page import="hospital.user.Department" %><%--
   Created by IntelliJ IDEA.
   User: Administrator
   Date: 2021/11/20
@@ -120,12 +123,6 @@
 <%--            <td><input type="reset" value="重置"></td>--%>
         </tr>
     </table>
-
-    <a href="DoctorLogin.jsp">
-        <tr>
-            <td colspan="2" align="center">已有账号？请登录</td>
-        </tr>
-    </a>
 
 </form>
 <div class="bottom-bar"></div>
