@@ -1,5 +1,10 @@
 <%
-    int UserID = Integer.parseInt(request.getParameter("UserID"));
+    int UserID;
+    if (request.getAttribute("UserID")!= null) {
+        UserID = (int) (request.getAttribute("UserID"));
+    } else {
+        UserID = Integer.parseInt(request.getParameter("UserID"));
+    }
     int HospitalID = Integer.parseInt(request.getParameter("HospitalID"));
     int DepartmentID = Integer.parseInt(request.getParameter("DepartmentID"));
 %><%--
@@ -18,6 +23,11 @@
 <head>
     <title>用户首页</title>
     <link rel="stylesheet" href="css/navbar.css">
+    <script>
+        function showMessage(message) {
+            alert(message);
+        }
+    </script>
 </head>
 <body>
 <h1>桂林市医院统一预约挂号服务平台</h1>
@@ -87,6 +97,10 @@
         window.location.href = "./PatientSelectTime.jsp?UserID=" + UserID+"&HospitalID=" +HospitalID + "&DepartmentID=" + DepartmentID+"&DoctorID="+DoctorID;
     }
 </script>
-
+<% if (request.getAttribute("Errormessage") != null) { %>
+<script>
+    showMessage("<%= request.getAttribute("Errormessage") %>");
+</script>
+<% } %>
 </body>
 </html>

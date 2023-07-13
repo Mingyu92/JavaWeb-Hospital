@@ -11,6 +11,11 @@
     <title>更新个人信息</title>
     <link rel="stylesheet" href="./css/login.css">
     <link rel="stylesheet" href="./css/update.css">
+    <script>
+        function showMessage(message) {
+            alert(message);
+        }
+    </script>
 </head>
 <body>
 <div class="top-bar">
@@ -18,6 +23,7 @@
 </div>
 <form action="PatientUpdate" method="post">
     <table>
+        <input type="hidden" name="UserID" value="<%= request.getParameter("UserID") %>">
         <%--第一行:姓名--%>
         <tr>
             <td><label for="name">姓名</label> </td>
@@ -26,12 +32,8 @@
         <!-- 第四行:年龄 -->
         <tr>
             <td><label for="age">年龄</label></td>
-            <td>
-                <input type="range" name="age" id="age" min="0" max="100" oninput="updateAgeValue(this.value)">
-            </td>
-            <td><span id="ageValue"></span></td>
-            <%--第五行:性别--%>
-        <tr>
+            <td><input type="text" name="age" id="age"></td>
+        </tr>
             <td><input type="radio" name="sex" value="男">男</td>
             <td><input type="radio" name="sex" value="女">女</td>
         </tr>
@@ -64,5 +66,10 @@
 </form>
 
 <div class="bottom-bar"></div>
+<% if (request.getAttribute("Errormessage") != null) { %>
+<script>
+    showMessage("<%= request.getAttribute("Errormessage") %>");
+</script>
+<% } %>
 </body>
 </html>

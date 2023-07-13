@@ -63,6 +63,7 @@ public class PatientService {
         if(patient==null){
             return false;
         }
+        patient.setUserID(UserID);
         patient.setName(Name);
         patient.setSex(Sex);
         patient.setAge(Age);
@@ -135,5 +136,21 @@ public class PatientService {
     }
     public Sick SickFindById(int id){
         return sickDao.findById(id);
+    }
+
+    public boolean SickFoundPassword(String phoneNumber, String name, String idCard, String password) {
+        Patient patient=patientDao.find(phoneNumber);
+        if(patient==null){
+            System.out.println("Patient not found");
+            return false;
+        }
+        if(!Objects.equals(patient.getName(), name)){
+            return false;
+        }
+        if (!Objects.equals(patient.getIdCard(), idCard)) {
+            return false;
+        }
+
+        return patientDao.update(patient.getUserID(), password);
     }
 }

@@ -22,14 +22,14 @@ public class DoctorUpdateServlet extends HttpServlet {
         HospitalDaoImpl hospitalDao = new HospitalDaoImpl();
         DepartmentDaoimpl departmentDaoimpl = new DepartmentDaoimpl();
 
-        int id= Integer.parseInt(req.getParameter("id"));
+        int id= Integer.valueOf(req.getParameter("id"));
         String name=req.getParameter("name");
-        int age= Integer.parseInt(req.getParameter("age"));
+        int age= Integer.valueOf(req.getParameter("age"));
         String sex=req.getParameter("sex");
         String phone = req.getParameter("phone");
-        int HospitalId = Integer.parseInt(req.getParameter("Hospital"));
+        int HospitalId = Integer.valueOf(req.getParameter("Hospital"));
         String Hospital = hospitalDao.find(HospitalId).getName();
-        int DepartmentId = Integer.parseInt(req.getParameter("Department"));
+        int DepartmentId = Integer.valueOf(req.getParameter("Department"));
         String Department = departmentDaoimpl.findone(DepartmentId).getDepartmentname();
         String ProfessionalTitle = req.getParameter("ProfessionalTitle");
         String Introduction = req.getParameter("Introduction");

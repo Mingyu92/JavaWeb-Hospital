@@ -59,6 +59,7 @@
 
         <%
             /*获取从登录页面和注册页面传入的id*/
+            int id = Integer.parseInt(request.getParameter("id"));
             List<Department> departmentList = adminService.AllDepartment();
         %>
 
@@ -97,10 +98,17 @@
             </td>
         </tr>
 
+            <td>
+                <label>
+                    <input type="hidden" name="id" value="<%=id%>">
+                </label>
+            </td>
+
         <tr>
             <td><input type="submit" value="更新"></td>
             <td><input type="reset" value="重置"></td>
         </tr>
+
     </table>
 
     <div class="bottom-bar"></div>

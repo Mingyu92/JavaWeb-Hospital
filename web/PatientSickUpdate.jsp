@@ -1,4 +1,9 @@
-<%--
+<%@ page import="hospital.user.Hospital" %>
+<%@ page import="hospital.service.AdminService" %>
+<%@ page import="java.util.List" %>
+<%@ page import="hospital.user.Department" %>
+<%@ page import="hospital.user.Doctor" %>
+<%@ page import="hospital.service.DoctorService" %><%--
   Created by IntelliJ IDEA.
   User: Administrator
   Date: 2021/11/20
@@ -9,26 +14,21 @@
 <html>
 <head>
     <title>更新挂号数据</title>
+    <script>
+        function showMessage(message) {
+            alert(message);
+        }
+    </script>
 </head>
 <body>
 <form action="PatientSickUpdate" method="post">
     <table>
         <input type="hidden" name="UserID" value="<%=request.getParameter("UserID")%>">
         <input type="hidden" name="AppointmentID" value="<%=request.getParameter("AppointmentID")%>">
-<%--        <tr>--%>
-<%--            <td><label for="P_Name">病人姓名</label> </td>--%>
-<%--            <td><input type="text" name="P_Name" id="P_Name"></td>--%>
-<%--        </tr>--%>
-
-<%--        <tr>--%>
-<%--            <td><label for="D_Name">医生姓名</label> </td>--%>
-<%--            <td><input type="text" name="D_Name" id="D_Name"></td>--%>
-<%--        </tr>--%>
         <tr>
             <td><label for="AppointmentDate">预约日期</label> </td>
-            <td><input type="date" name="AppointmentDate" id="AppointmentDate"></td>
+            <td><input type="date" name="AppointmentDate" id="AppointmentDate" min="<%= java.time.LocalDate.now() %>"></td>
         </tr>
-
         <tr>
             <td><label for="AppointmentTime">预约时间段</label></td>
             <td>
@@ -63,5 +63,10 @@
         </tr>
     </table>
 </form>
+<% if (request.getAttribute("Errormessage") != null) { %>
+<script>
+    showMessage("<%= request.getAttribute("Errormessage") %>");
+</script>
+<% } %>
 </body>
 </html>

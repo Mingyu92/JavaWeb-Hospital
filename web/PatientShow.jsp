@@ -1,5 +1,10 @@
 <%
-    int UserID = Integer.parseInt(request.getParameter("UserID"));
+    int UserID;
+    if (request.getAttribute("UserID")!= null) {
+        UserID = (int) (request.getAttribute("UserID"));
+    } else {
+        UserID = Integer.parseInt(request.getParameter("UserID"));
+    }
 %><%--
   Created by IntelliJ IDEA.
   User: ZhangYe
@@ -21,7 +26,11 @@
     <script src="js/Patient.js"></script>
 
     <link rel="stylesheet" href="css/navbar.css">
-
+    <script>
+        function showMessage(message) {
+            alert(message);
+        }
+    </script>
 </head>
 <body>
 <h1>桂林市医院统一预约挂号服务平台</h1>
