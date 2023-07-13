@@ -12,12 +12,20 @@
     <style>
         .password-message {
             position: absolute;
-            top: 65px;
-            left: 280px; /* 调整 left 值来控制提示信息的水平位置 */
+            top: 475px;
+            left: 859px; /* 调整 left 值来控制提示信息的水平位置 */
             margin-top: 5px;
             font-size: 14px;
+        }
+
+        .password-match {
+            color: green;
+        }
+
+        .password-mismatch {
             color: red;
         }
+
     </style>
     <script>
         function showMessage(message) {
@@ -31,10 +39,12 @@
 
             if (password === SurePassword) {
                 message.innerHTML = "密码匹配";
-                message.style.color = "green";
+                message.classList.add("password-match");
+                message.classList.remove("password-mismatch");
             } else {
                 message.innerHTML = "密码不匹配";
-                message.style.color = "red";
+                message.classList.add("password-mismatch");
+                message.classList.remove("password-match");
             }
         }
 

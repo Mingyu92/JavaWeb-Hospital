@@ -10,13 +10,31 @@
 <head>
     <title>病人注册</title>
     <style>
+
         .password-message {
             position: absolute;
-            top: 65px;
-            left: 280px; /* 调整 left 值来控制提示信息的水平位置 */
+            top: 273px;
+            left: 856px; /* 调整 left 值来控制提示信息的水平位置 */
             margin-top: 5px;
             font-size: 14px;
+        }
+
+        .password-match {
+            color: green;
+        }
+
+        .password-mismatch {
             color: red;
+        }
+
+        .lian {
+            font-size: large;
+            text-decoration: none;
+            font-weight: bold; /* 将字体加粗 */
+            color: #409eff;
+        }
+        .lian:hover {
+            color: #00B38F;
         }
     </style>
     <script>
@@ -31,10 +49,12 @@
 
             if (password === SurePassword) {
                 message.innerHTML = "密码匹配";
-                message.style.color = "green";
+                message.classList.add("password-match");
+                message.classList.remove("password-mismatch");
             } else {
                 message.innerHTML = "密码不匹配";
-                message.style.color = "red";
+                message.classList.add("password-mismatch");
+                message.classList.remove("password-match");
             }
         }
 
@@ -107,7 +127,7 @@
         </tr>
         <tr>
             <td>
-                <a href="PatientLogin.jsp">
+                <a href="PatientLogin.jsp" class="lian">
                     登录
                 </a>
             </td>

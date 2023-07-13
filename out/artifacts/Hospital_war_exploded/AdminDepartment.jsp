@@ -32,7 +32,6 @@
 
 <div>
     <h1>科室管理</h1>
-    <a href="./AdminAddDepartment.jsp" class="button">新增</a>
         <%
     DepartmentDaoimpl departmentdaoimpl = new DepartmentDaoimpl();
     List<Department> departmentList = null;
@@ -45,6 +44,7 @@
     }
     assert departmentList != null;
   %>
+    <a href="./AdminAddDepartment.jsp?hospitalId=<%= id %>" class="button">新增</a>
     <div>
         <table>
             <thead>

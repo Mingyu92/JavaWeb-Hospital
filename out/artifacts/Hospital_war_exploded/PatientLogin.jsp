@@ -29,12 +29,6 @@
             margin-left: 8px;
         }
 
-        .lian {
-            font-size: large;
-            text-decoration: none;
-            font-weight: bold; /* 将字体加粗 */
-            color: #409eff;
-        }
         .lian2 {
             font-size: large;
             text-decoration: none;
@@ -42,9 +36,7 @@
             float: right;
             color: #409eff;
         }
-        .lian:hover {
-            color: #00B38F;
-        }
+
         .lian2:hover {
             color: #00B38F;
         }
@@ -97,14 +89,7 @@
         <tr>
             <td colspan="2">
                     <a href="PatientRegister.jsp" class="lian">注册</a>
-                    <a href="#" class="lian2">找回密码</a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <a href="PatientFoundPassword.jsp">
-                    忘记密码
-                </a>
+                    <a href="PatientFoundPassword.jsp" class="lian2">忘记密码</a>
             </td>
         </tr>
     </table>

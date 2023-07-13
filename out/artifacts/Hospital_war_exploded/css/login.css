@@ -107,3 +107,13 @@ input[type="reset"]:hover {
 a {
     text-decoration: underline;
 }
+
+.lian {
+    font-size: large;
+    text-decoration: none;
+    font-weight: bold; /* 将字体加粗 */
+    color: #409eff;
+}
+.lian:hover {
+    color: #00B38F;
+}
