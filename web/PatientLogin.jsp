@@ -81,6 +81,13 @@
                 </a>
             </td>
         </tr>
+        <tr>
+            <td>
+                <a href="PatientFoundPassword.jsp">
+                    忘记密码
+                </a>
+            </td>
+        </tr>
     </table>
 </form>
 

@@ -22,6 +22,7 @@ public class PatientSickPaymentServlet extends HttpServlet {
             req.getRequestDispatcher("PatientSickShow.jsp").forward(req, resp);
         } else {
             req.setAttribute("Errormessage", "缴费失败！");
+            req.setAttribute("UserID", UserID);
             req.getRequestDispatcher("PatientSickShow.jsp").forward(req, resp);
         }
     }
