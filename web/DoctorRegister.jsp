@@ -56,17 +56,17 @@
             <td>
                 <select name="part1">
                     <option value="桂林医学院附属医院">桂林医学院附属医院</option>
-                    <option value="桂林中医医院">桂林中医医院</option>
-                    <option value="中国人民解放军第一八一医院">中国人民解放军第一八一医院</option>
-                    <option value="桂林市人民医院">桂林市人民医院</option>
-                    <option value="桂林市第二人民医院">桂林市第二人民医院</option>
-                    <option value="桂林市第五人民医院">桂林市第五人民医院</option>
-                    <option value="桂林市妇女儿童医院">桂林市妇女儿童医院</option>
-                    <option value="桂林市第三人民医院">桂林市第三人民医院</option>
-                    <option value="灵川县疾病预防控制中心">灵川县疾病预防控制中心</option>
-                    <option value="兴安县疾病预防控制中心">兴安县疾病预防控制中心</option>
-                    <option value="兴安县界首中心卫生院">兴安县界首中心卫生院</option>
-                    <option value="恭城县人民医院">恭城县人民医院</option>
+                    <option value="桂林市第三人民医院">桂林中医医院</option>
+                    <option value="灵川县疾病预防控制中心">中国人民解放军第一八一医院</option>
+                    <option value="兴安县疾病预防控制中心">桂林市人民医院</option>
+                    <option value="兴安县界首中心卫生院">桂林市第二人民医院</option>
+                    <option value="桂林市中医医院">桂林市第五人民医院</option>
+                    <option value="中国人民解放军第一八一医院">桂林市妇女儿童医院</option>
+                    <option value="桂林市第五人民医院 ">桂林市第三人民医院</option>
+                    <option value="广西壮族自治区南溪山医院">灵川县疾病预防控制中心</option>
+                    <option value="桂林市妇女儿童医院">兴安县疾病预防控制中心</option>
+                    <option value="才湾镇卫生院">兴安县界首中心卫生院</option>
+                    <option value="桂林市人民医院">恭城县人民医院</option>
                 </select>
             </td>
         </tr>
