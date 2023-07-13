@@ -43,7 +43,6 @@
     }
     assert sickList != null;
   %>
-  <a href="./AdminAddSick.jsp?patientID=<%= patientID %>" class="button">新增</a>
   <div>
     <table>
       <thead>
