@@ -83,7 +83,6 @@
         <table>
             <thead>
             <tr>
-                <th>病人姓名</th>
                 <th>主治医生</th>
                 <th>预约日期</th>
                 <th>预约时间段</th>
@@ -94,13 +93,14 @@
                 <th>支付金额</th>
                 <th></th>
                 <th></th>
+                <th></th>
+
             </tr>
             </thead>
             <tbody>
             <%for (Sick s : sickList) {
             %>
             <tr>
-                <td><%= s.getP_name() %></td>
                 <td><%= s.getD_name() %></td>
                 <td><%= s.getData() %></td>
                 <td><%= s.getTime() %></td>
@@ -110,13 +110,20 @@
                 <td><%= s.getPaymentstatus() %></td>
                 <td><%= s.getPaymentamount() %></td>
                 <td>
-                    <a href="SickDelete?id=<%= s.getId() %>&choose=patient">
-                        <input type="button" value="取消">
-                    </a>
+                    <form action="PatientSickDelete" method="POST">
+                        <input type="hidden" name="UserID" value="<%= s.getPatientId() %>">
+                        <input type="hidden" name="AppointmentID" value="<%= s.getId() %>">
+                        <input type="submit" value="取消">
+                    </form>
                 </td>
                 <td>
                     <a href="PatientSickUpdate.jsp?UserID=<%= s.getPatientId() %>&AppointmentID=<%= s.getId() %>">
                         <input type="button" value="修改">
+                    </a>
+                </td>
+                <td>
+                    <a href="PatientPayment.jsp?UserID=<%= s.getPatientId() %>&AppointmentID=<%= s.getId() %>">
+                        <input type="button" value="缴费">
                     </a>
                 </td>
             </tr>

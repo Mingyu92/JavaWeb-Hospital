@@ -11,4 +11,5 @@ public interface DepartmentDao {
     public Department add(Department department);
     public boolean update(Department department);
     public Department find(int id);
+    public Department findone(int id);
 }
