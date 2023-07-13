@@ -20,8 +20,12 @@
     <!-- 引入一个js文件 -->
     <script src="js/Patient.js"></script>
 
-    <link rel="stylesheet" href="./css/patientshow.css">
-
+    <link rel="stylesheet" href="css/navbar.css">
+    <script>
+        function showMessage(message) {
+            alert(message);
+        }
+    </script>
 </head>
 <body>
 <h1>桂林市医院统一预约挂号服务平台</h1>

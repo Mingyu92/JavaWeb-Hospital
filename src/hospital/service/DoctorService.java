@@ -116,6 +116,14 @@ public class DoctorService {
         s.setDepartmentname(DepartmentName);
         return sickDao.update(s);
     }
+
+    public boolean SickUpdate(int AppointmentID){
+        Sick s=sickDao.findById(AppointmentID);
+        if(s==null){
+            return false;
+        }
+        return sickDao.update(AppointmentID);
+    }
     public Sick SickFindById(int id){
         return sickDao.findById(id);
     }

@@ -62,6 +62,11 @@
             background-color: #f2f2f2;
         }
     </style>
+    <script>
+        function showMessage(message) {
+            alert(message);
+        }
+    </script>
 </head>
 <body>
 <h1>桂林市医院统一预约挂号服务平台</h1>
@@ -184,6 +189,10 @@
         // Rest of the code remains the same
     }
 </script>
-
+<% if (request.getAttribute("Errormessage") != null) { %>
+<script>
+    showMessage("<%= request.getAttribute("Errormessage") %>");
+</script>
+<% } %>
 </body>
 </html>
