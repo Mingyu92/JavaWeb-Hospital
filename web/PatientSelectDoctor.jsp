@@ -93,7 +93,7 @@
             <%for (Doctor doctor : doctordaoList) { %>
             <tr>
                 <td><%=doctor.getId() %></td>
-                <td><%=doctor.getName() %>></td>
+                <td><%=doctor.getName() %></td>
                 <td><%=doctor.getSex() %></td>
                 <td><%=doctor.getAge()%></td>
                 <td><%=doctor.getPhone()%></td>
