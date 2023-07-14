@@ -1,4 +1,4 @@
-function DeleteSick(patientID, sickID) {
+function DeleteSick(patientID, sickID, A_Name) {
     var confirmation = confirm('是否要删除该预约记录？');
     if (confirmation) {
         var xhr = new XMLHttpRequest();
@@ -16,11 +16,11 @@ function DeleteSick(patientID, sickID) {
                 }
             }
         };
-        xhr.send('patientID=' + encodeURIComponent(patientID) + '&sickID=' + encodeURIComponent(sickID));
+        xhr.send('patientID=' + encodeURIComponent(patientID) + '&sickID=' + encodeURIComponent(sickID) + '&A_Name=' + encodeURIComponent(A_Name));
     }
 }
-function ReviseSick(patientID, sickID) {
-    window.location.href = "SickInformation.jsp?patientID=" + patientID + "&sickID=" + sickID;
+function ReviseSick(patientID, sickID, A_Name) {
+    window.location.href = "SickInformation.jsp?patientID=" + patientID + "&sickID=" + sickID + "&A_Name=" + A_Name;
 }
 function goBack() {
     history.back();

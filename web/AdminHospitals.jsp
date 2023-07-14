@@ -18,8 +18,11 @@
   <script src="js/Hospital.js"></script>
   <link rel="stylesheet" href="css/fanhui.css">
   <link rel="stylesheet" href="css/adminform.css">
+
   <link rel="stylesheet" href="css/navbar.css">
   <link rel="stylesheet" href="css/admin_youshangjiao.css">
+
+  <link rel="stylesheet" href="css/leave.css">
 </head>
 <body>
 <h1>桂林市医院统一预约挂号服务平台</h1>

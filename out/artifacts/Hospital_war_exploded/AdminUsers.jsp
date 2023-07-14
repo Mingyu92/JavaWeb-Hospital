@@ -9,6 +9,7 @@
 <%@ page import="hospital.user.Patient" %>
 <%@ page import="java.util.List" %>
 <%@ page import="hospital.dao.impl.PatientDaoImpl" %>
+<%@ page import="java.net.URLEncoder" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -18,15 +19,28 @@
   <!-- 引入一个js文件 -->
   <script src="js/Patient.js"></script>
   <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/leave.css">
+  </style>
 </head>
 <body>
 <h1>桂林市医院统一预约挂号服务平台</h1>
 <div>
+  <%String A_Name = request.getParameter("A_Name");%>
+  <!-- 欢迎管理员登录 -->
+  <div class="welcome-admin">
+    <div class="dropdown">
+      <span>欢迎管理员<%=A_Name%>登录</span>
+      <div class="dropdown-content">
+        <a href="AdminInformation.jsp?A_Name=<%= A_Name %>">修改资料</a>
+        <a href="Choose.jsp">退出登录</a>
+      </div>
+    </div>
+  </div>
   <!-- 导航栏 -->
   <ul class="navbar">
-    <li><a href="./AdminCenter.jsp">首页</a></li>
-    <li><a href="./AdminUsers.jsp">用户管理</a></li>
-    <li><a href="./AdminHospitals.jsp">医院管理</a></li>
+    <li><a href="./AdminCenter.jsp?A_Name=<%= A_Name %>">首页</a></li>
+    <li><a href="./AdminUsers.jsp?A_Name=<%= A_Name %>">用户管理</a></li>
+    <li><a href="./AdminHospitals.jsp?A_Name=<%= A_Name %>">医院管理</a></li>
     <!-- 添加更多功能模块链接 -->
   </ul>
 </div>
@@ -60,7 +74,7 @@
       <%for (Patient patient : patientList) { %>
       <tr>
         <td>
-          <a href="./AdminSick.jsp?patientID=<%= patient.getUserID() %>"><%= patient.getName() %></a>
+          <a href="./AdminSick.jsp?A_Name=<%= URLEncoder.encode(A_Name, "UTF-8") %>&patientID=<%= patient.getUserID() %>"><%= patient.getName() %></a>
         </td>
         <td><%= patient.getSex() %></td>
         <td><%= patient.getAge() %></td>
@@ -71,7 +85,7 @@
           <label>
             <input type="hidden" name="Id" value="<%=patient.getUserID()%>">
           </label>
-          <button class="button" type="submit" onclick="DeletePatient(<%=patient.getUserID()%>); return false;">删除用户</button>
+          <button class="button" type="submit" onclick="DeletePatient( '<%= A_Name %>', '<%= patient.getUserID() %>'); return false;">删除用户</button>
         </td>
       </tr>
       <% } %>

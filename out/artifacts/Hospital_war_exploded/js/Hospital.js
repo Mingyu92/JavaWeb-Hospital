@@ -1,7 +1,8 @@
-function DeleteHospital(Id) {
+function DeleteHospital(A_Name, Id) {
     var confirmation = confirm('是否要删除该医院？');
     if (confirmation) {
         var xhr = new XMLHttpRequest();
+        var params = 'Id=' + encodeURIComponent(Id) + '&A_Name=' + encodeURIComponent(A_Name); // 添加A_Name作为参数
         console.log("YES");
         xhr.open('POST', './HospitalRemove', true); // 根据实际情况修改Servlet路径
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -19,11 +20,11 @@ function DeleteHospital(Id) {
                 }
             }
         };
-        xhr.send('Id=' + encodeURIComponent(Id));
+        xhr.send(params);
     }
 }
-function ReviseHospital(Id) {
-    window.location.href = './HospitalInformation.jsp?Id=' + Id;
+function ReviseHospital(A_Name, Id) {
+    window.location.href = './HospitalInformation.jsp?Id=' + encodeURIComponent(Id) + '&A_Name=' + encodeURIComponent(A_Name);
 }
 function goBack() {
     history.back();
