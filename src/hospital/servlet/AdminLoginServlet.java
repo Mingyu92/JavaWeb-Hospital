@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.Objects;
 
 public class AdminLoginServlet extends HttpServlet {
@@ -27,8 +28,8 @@ public class AdminLoginServlet extends HttpServlet {
 
         if (flag) {
             resp.getWriter().write("登录成功!");
-            req.setAttribute("A_Name", A_Name);
-            req.getRequestDispatcher("./AdminCenter.jsp").forward(req, resp);
+            String url = "./AdminCenter.jsp?A_Name=" + URLEncoder.encode(A_Name, "UTF-8"); // 将A_Name作为查询参数添加到URL中
+            resp.sendRedirect(url);
         } else {
             resp.getWriter().write("登录失败!");
             resp.sendRedirect("./Error.jsp");

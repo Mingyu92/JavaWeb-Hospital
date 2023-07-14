@@ -13,10 +13,11 @@ public class HospitalRemoveServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         try {
+            String A_Name = request.getParameter("A_Name");
             int Id = Integer.parseInt(request.getParameter("Id"));
             HospitalDaoImpl hospitaldaoimpl = new HospitalDaoImpl();
             hospitaldaoimpl.delete(Id);
-            response.sendRedirect("./AdminHospitals.jsp");
+            response.sendRedirect("./AdminHospitals.jsp?A_Name=" + A_Name);
         } catch (Exception e) {
             e.printStackTrace();
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);

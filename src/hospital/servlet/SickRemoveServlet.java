@@ -13,12 +13,13 @@ public class SickRemoveServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         try {
+            String A_Name = request.getParameter("A_Name");
             int patientID = Integer.parseInt(request.getParameter("patientID"));
             int sickID = Integer.parseInt(request.getParameter("sickID"));
             SickDaoImpl sickdaoimpl = new SickDaoImpl();
             sickdaoimpl.delete(sickID);
             //System.out.println(departmentId);
-            response.sendRedirect("./AdminSick.jsp?patientID=" + patientID);
+            response.sendRedirect("./AdminSick.jsp?patientID=" + patientID +"&A_Name=" + A_Name);
         } catch (Exception e) {
             e.printStackTrace();
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
