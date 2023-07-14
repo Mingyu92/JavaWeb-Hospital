@@ -13,13 +13,14 @@ public class DocterRemoveServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         try {
+            String A_Name = request.getParameter("A_Name");
             int hospitalId = Integer.parseInt(request.getParameter("hospitalId"));
             int departmentId = Integer.parseInt(request.getParameter("departmentId"));
             int docterId = Integer.parseInt(request.getParameter("docterId"));
             DoctorDaoImpl docterdaoimpl = new DoctorDaoImpl();
             docterdaoimpl.delete(docterId);
             //System.out.println(departmentId);
-            response.sendRedirect("./AdminDocter.jsp?hospitalId=" + hospitalId + "&departmentId=" + departmentId);
+            response.sendRedirect("./AdminDocter.jsp?hospitalId=" + hospitalId + "&departmentId=" + departmentId + "&A_Name=" + A_Name);
         } catch (Exception e) {
             e.printStackTrace();
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);

@@ -10,6 +10,30 @@
 <head>
     <title>新增医院信息</title>
     <style>
+        .welcome-admin {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            min-width: 160px;
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
         ul.navbar {
             list-style-type: none;
             margin: 0;
@@ -38,11 +62,22 @@
 <body>
 <h1>桂林市医院统一预约挂号服务平台</h1>
 <div>
+    <%String A_Name = request.getParameter("A_Name");%>
+    <!-- 欢迎管理员登录 -->
+    <div class="welcome-admin">
+        <div class="dropdown">
+            <span>欢迎管理员<%=A_Name%>登录</span>
+            <div class="dropdown-content">
+                <a href="AdminInformation.jsp?A_Name=<%= A_Name %>">修改资料</a>
+                <a href="Choose.jsp">退出登录</a>
+            </div>
+        </div>
+    </div>
     <!-- 导航栏 -->
     <ul class="navbar">
-        <li><a href="./AdminCenter.jsp">首页</a></li>
-        <li><a href="./AdminUsers.jsp">用户管理</a></li>
-        <li><a href="./AdminHospitals.jsp">医院管理</a></li>
+        <li><a href="./AdminCenter.jsp?A_Name=<%= A_Name %>">首页</a></li>
+        <li><a href="./AdminUsers.jsp?A_Name=<%= A_Name %>">用户管理</a></li>
+        <li><a href="./AdminHospitals.jsp?A_Name=<%= A_Name %>">医院管理</a></li>
         <!-- 添加更多功能模块链接 -->
     </ul>
 </div>
@@ -50,6 +85,7 @@
     <h1>新增医院</h1>
     <div>
         <form action="AddHospital" method="POST">
+            <input type="hidden" name="A_Name" value="<%=A_Name%>">
             <label>医院名称:</label>
             <input type="text" name="name"><br><br>
 
@@ -75,7 +111,7 @@
             <textarea name="introduction"></textarea><br><br>
 
             <input type="submit" value="提交">
-            <a href="./AdminHospitals.jsp" class="button">返回</a> <!-- 新增返回按钮 -->
+            <a href="./AdminHospitals.jsp?A_Name=<%= A_Name %>" class="button">返回</a> <!-- 新增返回按钮 -->
         </form>
     </div>
 </div>

@@ -1,21 +1,20 @@
 package hospital.servlet;
-import java.io.IOException;
-import java.io.PrintWriter;
+
+import hospital.dao.impl.SickDaoImpl;
+import hospital.user.Sick;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import hospital.dao.impl.DepartmentDaoimpl;
-import hospital.dao.impl.SickDaoImpl;
-import hospital.user.Department;
-import hospital.user.Sick;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 public class UpdateSickServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        String A_Name = request.getParameter("A_Name");
         int patientID = Integer.parseInt(request.getParameter("patientID"));
         int sickID = Integer.parseInt(request.getParameter("sickID"));
         //System.out.println(sickID);
@@ -51,12 +50,12 @@ public class UpdateSickServlet extends HttpServlet {
         if (success) {
             out.println("<script>");
             out.println("alert('预约信息已成功更新！');");
-            out.println("window.location.href='./AdminSick.jsp?patientID=" + patientID + "';"); // 更新成功后重定向到科室管理页面
+            out.println("window.location.href='./AdminSick.jsp?patientID=" + patientID + "&A_Name=" + A_Name + "';"); // 更新成功后重定向到科室管理页面
             out.println("</script>");
         } else {
             out.println("<script>");
             out.println("alert('预约信息更新失败，请重试！');");
-            out.println("window.location.href='./AdminSick.jsp?patientID=" + patientID + "';"); // 更新失败后重定向到科室管理页面
+            out.println("window.location.href='./AdminSick.jsp?patientID=" + patientID + "&A_Name=" + A_Name + "';"); // 更新成功后重定向到科室管理页面
             out.println("</script>");
         }
 

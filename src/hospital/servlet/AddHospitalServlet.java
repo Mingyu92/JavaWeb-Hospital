@@ -11,6 +11,7 @@ import java.io.IOException;
 public class AddHospitalServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // 获取表单提交的数据
+        String A_Name = request.getParameter("A_Name");
         String name = request.getParameter("name");
         String level = request.getParameter("level");
         String address = request.getParameter("address");
@@ -36,7 +37,7 @@ public class AddHospitalServlet extends HttpServlet {
         hospitalDaoImpl.add(hospital);
 
         // 重定向到医院管理页面
-        response.sendRedirect("./AdminHospitals.jsp");
+        response.sendRedirect("./AdminHospitals.jsp?A_Name=" + A_Name);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
