@@ -18,9 +18,39 @@
 <head>
     <title>用户首页</title>
     <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/fanhui.css">
 </head>
 <body>
 <h1>桂林市医院统一预约挂号服务平台</h1>
+
+<div id="patternContainer">
+    <a href="./PatientSelectHospital.jsp?UserID=<%= UserID %>" target="_self">
+        <canvas id="patternCanvas" width="80" height="80"></canvas>
+    </a>
+</div>
+
+<script>
+    // 获取画布元素和上下文
+    const canvas = document.getElementById('patternCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // 清空画布
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // 绘制箭头路径
+    ctx.beginPath();
+    ctx.moveTo(canvas.width / 2 - 15, canvas.height / 2);
+    ctx.lineTo(canvas.width / 2 + 15, canvas.height / 2 - 15);
+    ctx.lineTo(canvas.width / 2 + 15, canvas.height / 2 + 15);
+    ctx.closePath();
+    ctx.fillStyle = 'lightblue'; // 可以更改颜色
+    ctx.fill();
+
+    // 添加点击事件监听器
+    canvas.addEventListener('click', function() {
+        window.open('#', '_self');
+    });
+</script>
 <div>
     <!-- 导航栏 -->
     <ul class="navbar">
@@ -63,7 +93,7 @@
             <%for (Doctor doctor : doctordaoList) { %>
             <tr>
                 <td><%=doctor.getId() %></td>
-                <td><%=doctor.getName() %>></td>
+                <td><%=doctor.getName() %></td>
                 <td><%=doctor.getSex() %></td>
                 <td><%=doctor.getAge()%></td>
                 <td><%=doctor.getPhone()%></td>

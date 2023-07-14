@@ -59,7 +59,9 @@
             <tbody>
             <%for (Department department : departmentList) { %>
             <tr>
-                <td><%= department.getDepartmentname() %></td>
+                <td>
+                    <a href="AdminDocter.jsp?departmentId=<%= department.getDepartmentid() %>&hospitalId=<%= id %>"><%= department.getDepartmentname() %></a>
+                </td>
                 <td><%= department.getDepartmenthead() %></td>
                 <td><%= department.getIntroduction() %></td>
                 <td><%= department.getClinichours() %></td>
@@ -76,5 +78,6 @@
             </tbody>
         </table>
     </div>
+</div>
 </body>
 </html>

@@ -1,0 +1,38 @@
+
+.slideshow {
+    width: 65%;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    margin-top:10px;
+}
+
+.slideshow img {
+    width: 100%;
+    height: auto;
+    display: none;
+}
+
+.slideshow img.active {
+    display: block;
+}
+
+.slideshow .prev,
+.slideshow .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 16px;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.slideshow .prev {
+    left: 10px;
+}
+
+.slideshow .next {
+    right: 10px;
+}
