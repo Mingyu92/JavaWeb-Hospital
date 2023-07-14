@@ -63,7 +63,7 @@
     <h1>选时间</h1>
     <div>
         <label for="date">选择日期:</label>
-        <input type="date" id="date" name="Date">
+        <input type="date" id="date" name="Date" min="<%= java.time.LocalDate.now() %>">
         <br><br>
     </div>
     <div>
