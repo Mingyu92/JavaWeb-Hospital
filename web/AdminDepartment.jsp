@@ -17,6 +17,10 @@
     <!-- 引入一个js文件 -->
     <script src="js/Department.js"></script>
     <link rel="stylesheet" href="css/navbar.css">
+
+    <link rel="stylesheet" href="css/admin_youshangjiao.css">
+    <link rel="stylesheet" href="css/adminform.css">
+
     <link rel="stylesheet" href="css/leave.css">
 </head>
 <body>

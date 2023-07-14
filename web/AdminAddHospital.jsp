@@ -9,32 +9,12 @@
 <html>
 <head>
     <title>新增医院信息</title>
+    <link rel="stylesheet" href="css/juzhong.css">
+    <link rel="stylesheet" href="css/admin_youshangjiao.css">
+    <link rel="stylesheet" href="css/navbar.css">
+
     <link rel="stylesheet" href="css/leave.css">
-    <style>
-        ul.navbar {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            background-color: #f1f1f1;
-            overflow: hidden;
-        }
 
-        ul.navbar li {
-            float: left;
-        }
-
-        ul.navbar li a {
-            display: block;
-            color: black;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-
-        ul.navbar li a:hover:not(.active) {
-            background-color: #ddd;
-        }
-    </style>
 </head>
 <body>
 <h1>桂林市医院统一预约挂号服务平台</h1>

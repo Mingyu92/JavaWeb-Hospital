@@ -11,32 +11,11 @@
 <html>
 <head>
   <title>修改科室信息</title>
+
+  <link rel="stylesheet" href="css/admin_youshangjiao.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/juzhong.css">
   <link rel="stylesheet" href="css/leave.css">
-  <style>
-    ul.navbar {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      background-color: #f1f1f1;
-      overflow: hidden;
-    }
-
-    ul.navbar li {
-      float: left;
-    }
-
-    ul.navbar li a {
-      display: block;
-      color: black;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-    }
-
-    ul.navbar li a:hover:not(.active) {
-      background-color: #ddd;
-    }
-  </style>
 </head>
 <body>
 <h1>桂林市医院统一预约挂号服务平台</h1>
@@ -69,22 +48,23 @@
     Department department;
     department = departmentdaoimpl.find(departmentId);
   %>
-  <div>
-    <form action="UpdateDepartment" method="POST"> <!-- 替换 /updateHospital 为你想要处理更新请求的 URL -->
+  <div class="form-container">
+    <form action="UpdateDepartment" method="POST">
+      <!-- 替换 /updateHospital 为你想要处理更新请求的 URL -->
       <input type="hidden" name="hospitalId" value="<%= hospitalId %>">
-      <input type="hidden" name="D_Id" value="<%= department.getId()%>">
+      <input type="hidden" name="D_Id" value="<%= department.getId() %>">
       <input type="hidden" name="A_Name" value="<%= A_Name %>">
       <label>科室名称:</label>
-      <input type="text" name="name" value="<%= department.getDepartmentname() %>"><br><br>
+      <input type="text" name="name" value="<%= department.getDepartmentname() %>">
 
       <label>科室负责人:</label>
-      <input type="text" name="head" value="<%= department.getDepartmenthead() %>"><br><br>
+      <input type="text" name="head" value="<%= department.getDepartmenthead() %>">
 
       <label>简介:</label>
-      <textarea name="introduction"><%= department.getIntroduction() %></textarea><br><br>
+      <textarea name="introduction"><%= department.getIntroduction() %></textarea>
 
       <label>服务时间:</label>
-      <input type="text" name="time" value="<%= department.getClinichours() %>"><br><br>
+      <input type="text" name="time" value="<%= department.getClinichours() %>">
 
       <input type="submit" value="保存修改">
     </form>

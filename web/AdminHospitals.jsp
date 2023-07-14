@@ -16,8 +16,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- 引入一个js文件 -->
   <script src="js/Hospital.js"></script>
-  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/fanhui.css">
   <link rel="stylesheet" href="css/adminform.css">
+
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/admin_youshangjiao.css">
+
   <link rel="stylesheet" href="css/leave.css">
 </head>
 <body>

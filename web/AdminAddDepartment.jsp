@@ -11,32 +11,12 @@
 <html>
 <head>
     <title>新增科室</title>
+
+    <link rel="stylesheet" href="css/juzhong.css">
+    <link rel="stylesheet" href="css/admin_youshangjiao.css">
+    <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/leave.css">
-    <style>
-        ul.navbar {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            background-color: #f1f1f1;
-            overflow: hidden;
-        }
 
-        ul.navbar li {
-            float: left;
-        }
-
-        ul.navbar li a {
-            display: block;
-            color: black;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-
-        ul.navbar li a:hover:not(.active) {
-            background-color: #ddd;
-        }
-    </style>
 </head>
 <body>
 <h1>桂林市医院统一预约挂号服务平台</h1>
@@ -100,7 +80,7 @@
             <input type="text" name="time"><br><br>
 
             <input type="submit" value="提交">
-            <a href="./AdminDepartment.jsp?hospitalId=<%= id %>&A_Name=<%= A_Name %>" class="button">返回</a>> <!-- 新增返回按钮 -->
+            <a href="./AdminDepartment.jsp?hospitalId=<%= id %>&A_Name=<%= A_Name %>" class="button">返回</a><!-- 新增返回按钮 -->
         </form>
     </div>
 </div>
