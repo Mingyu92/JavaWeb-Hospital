@@ -24,7 +24,7 @@
 <h1>桂林市医院统一预约挂号服务平台</h1>
 
 <div id="patternContainer">
-    <a href="./PatientSelectHospital.jsp?UserID=<%= UserID %>" target="_self">
+    <a href="./PatientSelectDepartment.jsp?UserID=<%= UserID %>&HospitalID=1<%= HospitalID %>" target="_self">
         <canvas id="patternCanvas" width="80" height="80"></canvas>
     </a>
 </div>

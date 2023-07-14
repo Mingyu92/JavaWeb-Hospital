@@ -11,55 +11,9 @@
 <html>
 <head>
     <title>新增科室</title>
-    <style>
-        .welcome-admin {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-        }
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            min-width: 160px;
-            z-index: 1;
-        }
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        ul.navbar {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            background-color: #f1f1f1;
-            overflow: hidden;
-        }
-
-        ul.navbar li {
-            float: left;
-        }
-
-        ul.navbar li a {
-            display: block;
-            color: black;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-
-        ul.navbar li a:hover:not(.active) {
-            background-color: #ddd;
-        }
-    </style>
+    <link rel="stylesheet" href="css/juzhong.css">
+    <link rel="stylesheet" href="css/admin_youshangjiao.css">
+    <link rel="stylesheet" href="css/navbar.css">
 </head>
 <body>
 <h1>桂林市医院统一预约挂号服务平台</h1>
@@ -123,7 +77,7 @@
             <input type="text" name="time"><br><br>
 
             <input type="submit" value="提交">
-            <a href="./AdminDepartment.jsp?hospitalId=<%= id %>&A_Name=<%= A_Name %>" class="button">返回</a>> <!-- 新增返回按钮 -->
+            <a href="./AdminDepartment.jsp?hospitalId=<%= id %>&A_Name=<%= A_Name %>" class="button">返回</a><!-- 新增返回按钮 -->
         </form>
     </div>
 </div>

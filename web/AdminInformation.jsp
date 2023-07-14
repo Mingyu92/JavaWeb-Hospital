@@ -10,7 +10,7 @@
 <html>
 <head>
     <title>管理员修改资料</title>
-    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/adminform.css">
     <style>
         .welcome-admin {
             position: absolute;

@@ -4,13 +4,22 @@ body {
     margin: 0;
     padding: 20px;
 }
-
-/* body {
-    background-image: url("../image/5.jpeg");
-    background-size: cover;  /* 图片将被自动缩放以覆盖整个页面 */
-    background-repeat: no-repeat;  /* 禁止图片平铺 */
+a {
+    text-decoration: none; /* 去掉下划线 */
+    color: #000; /* 设置链接的颜色为黑色 */
+    transition: color 0.3s; /* 添加过渡效果 */
 }
- */
+
+a:hover {
+    color: #f00; /* 悬浮时链接的颜色为红色 */
+}
+
+/*body {*/
+/*    background-image: url("../image/5.jpeg");*/
+/*    background-size: cover;  !* 图片将被自动缩放以覆盖整个页面 *!*/
+/*    background-repeat: no-repeat;  !* 禁止图片平铺 *!*/
+/*}*/
+
 h1 {
     color: #333333;
     text-align: center;

@@ -22,15 +22,40 @@
     <title>用户首页</title>
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/center.css">
+    <link rel="stylesheet" href="css/fanhui.css">
 </head>
 <body>
+
+<div id="patternContainer">
+    <a href="./Choose.jsp"  target="_self">
+        <canvas id="patternCanvas" width="80" height="80"></canvas>
+    </a>
+</div>
+
+<script>
+    // 获取画布元素和上下文
+    const canvas = document.getElementById('patternCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // 绘制圆形
+    ctx.beginPath();
+    ctx.arc(canvas.width / 2, canvas.height / 2, 30, 0, 2 * Math.PI);
+    ctx.fillStyle = 'lightblue'; // 可以更改颜色
+    ctx.fill();
+
+    // 添加点击事件监听器
+    canvas.addEventListener('click', function() {
+        window.open('#', '_self');
+    });
+</script>
+
     <h1>
         桂林市医院统一预约挂号服务平台
     </h1>
     <span class="welcome">
 <%--        欢迎<%= Name %>使用桂林市医院统一预约挂号服务平台--%>
     </span>
-</div>
+
 
 <div>
     <!-- 导航栏 -->
