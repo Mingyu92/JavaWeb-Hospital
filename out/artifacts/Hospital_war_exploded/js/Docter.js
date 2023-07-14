@@ -1,4 +1,4 @@
-function DeleteDocter(hospitalId, departmentId, docterId) {
+function DeleteDocter(A_Name, hospitalId, departmentId, docterId) {
     var confirmation = confirm('是否要删除该用户？');
     if (confirmation) {
         var xhr = new XMLHttpRequest();
@@ -15,7 +15,7 @@ function DeleteDocter(hospitalId, departmentId, docterId) {
                 }
             }
         };
-        xhr.send('hospitalId=' + encodeURIComponent(hospitalId) + '&departmentId=' + encodeURIComponent(departmentId) + '&docterId=' + encodeURIComponent(docterId));
+        xhr.send( '&A_Name=' + encodeURIComponent(A_Name) + 'hospitalId=' + encodeURIComponent(hospitalId) + '&departmentId=' + encodeURIComponent(departmentId) + '&docterId=' + encodeURIComponent(docterId));
     }
 }
 function goBack() {
