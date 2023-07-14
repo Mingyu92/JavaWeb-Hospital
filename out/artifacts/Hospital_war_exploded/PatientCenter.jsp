@@ -21,16 +21,16 @@
 <head>
     <title>用户首页</title>
     <link rel="stylesheet" href="css/navbar.css">
-    <script>
-    function showMessage(message) {
-    alert(message);
-    }
-    </script>
 
 </head>
+<body>
     <h1>
         桂林市医院统一预约挂号服务平台
     </h1>
+    <span class="welcome">
+<%--        欢迎<%= Name %>使用桂林市医院统一预约挂号服务平台--%>
+    </span>
+</div>
 
 <div>
     <!-- 导航栏 -->
@@ -40,6 +40,7 @@
         <li><a href="./PatientSelectHospital.jsp?UserID=<%= UserID %>">预约挂号</a></li>
         <li><a href="./PatientSickShow.jsp?UserID=<%= UserID %>">查看挂号信息</a></li>
     </ul>
+
 </div>
 
 <% if (request.getAttribute("Errormessage") != null) { %>
