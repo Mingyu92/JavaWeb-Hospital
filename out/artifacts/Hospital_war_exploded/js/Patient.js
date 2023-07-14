@@ -1,7 +1,8 @@
-function DeletePatient(Id) {
+function DeletePatient(A_Name, Id) {
     var confirmation = confirm('是否要删除该用户？');
     if (confirmation) {
         var xhr = new XMLHttpRequest();
+        var params = 'Id=' + encodeURIComponent(Id) + '&A_Name=' + encodeURIComponent(A_Name); // 添加A_Name作为参数
         xhr.open('POST', './PatientRemove', true); // 根据实际情况修改Servlet路径
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
         xhr.onreadystatechange = function () {
@@ -15,7 +16,7 @@ function DeletePatient(Id) {
                 }
             }
         };
-        xhr.send('Id=' + encodeURIComponent(Id));
+        xhr.send(params);
     }
 }
 function goBack() {

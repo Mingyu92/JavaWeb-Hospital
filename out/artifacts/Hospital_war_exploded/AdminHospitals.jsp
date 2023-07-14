@@ -18,22 +18,97 @@
   <script src="js/Hospital.js"></script>
   <link rel="stylesheet" href="css/navbar.css">
   <link rel="stylesheet" href="css/adminform.css">
+  <style>
+    .welcome-admin {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-family: 'Arial', sans-serif;
+      text-align: right;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      background-color: #66b1ff;
+      color: white;
+      width: 100px;
+      height: 70px;
+      margin-right: 70px;
+      border-radius: 10px;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      min-width: 160px;
+      z-index: 1;
+      background-color: lightcyan;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+      padding: 8px 0;
+      opacity: 0;
+      transition: all 0.3s ease;
+      transform: translateY(-10px);
+      text-align: center;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .dropdown-content a {
+      color: #333333;
+      padding: 8px 16px;
+      text-decoration: none;
+      display: block;
+      transition: background-color 0.3s ease;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #00CC99;
+    }
+
+    .dropdown-content a:last-child {
+      margin-bottom: 0;
+    }
+
+    .welcome-text {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #7251ff;
+    }
+  </style>
 </head>
 <body>
 <h1>桂林市医院统一预约挂号服务平台</h1>
 <div>
+  <%String A_Name = request.getParameter("A_Name");%>
+  <!-- 欢迎管理员登录 -->
+  <div class="welcome-admin">
+    <div class="dropdown">
+      <span>欢迎管理员<%=A_Name%>登录</span>
+      <div class="dropdown-content">
+        <a href="AdminInformation.jsp?A_Name=<%= A_Name %>">修改资料</a>
+        <a href="Choose.jsp">退出登录</a>
+      </div>
+    </div>
+  </div>
   <!-- 导航栏 -->
   <ul class="navbar">
-    <li><a href="./AdminCenter.jsp">首页</a></li>
-    <li><a href="./AdminUsers.jsp">用户管理</a></li>
-    <li><a href="./AdminHospitals.jsp">医院管理</a></li>
+    <li><a href="./AdminCenter.jsp?A_Name=<%= A_Name %>">首页</a></li>
+    <li><a href="./AdminUsers.jsp?A_Name=<%= A_Name %>">用户管理</a></li>
+    <li><a href="./AdminHospitals.jsp?A_Name=<%= A_Name %>">医院管理</a></li>
     <!-- 添加更多功能模块链接 -->
   </ul>
 </div>
 
 <div>
   <h1>医院管理</h1>
-  <a href="./AdminAddHospital.jsp" class="button">新增</a>
+  <a href="./AdminAddHospital.jsp?A_Name=<%= A_Name %>" class="button">新增</a>
   <%
     HospitalDaoImpl hospitaldaoimpl = new HospitalDaoImpl();
     List<Hospital> hospitalList = null;
@@ -113,7 +188,7 @@
         <tr>
           <th>医院名称:</th>
           <td>
-            <a href="AdminDepartment.jsp?hospitalId=<%= hospital.getId() %>"> <%= hospital.getName() %> </a>
+            <a href="AdminDepartment.jsp?hospitalId=<%= hospital.getId() %>&A_Name=<%= A_Name %>"><%= hospital.getName() %></a>
           </td>
         </tr>
         <tr>
@@ -147,8 +222,8 @@
       </table>
       <div class="card-footer">
         <input type="hidden" name="Id" value="<%=hospital.getId()%>">
-        <button class="button" type="submit" onclick="DeleteHospital(<%=hospital.getId()%>); return false;">删除医院</button>
-        <button class="button" type="submit" onclick="ReviseHospital(<%=hospital.getId()%>); return false;">修改信息</button>
+        <button class="button" type="submit" onclick="DeleteHospital( '<%= A_Name %>', '<%=hospital.getId()%>'); return false;">删除医院</button>
+        <button class="button" type="submit" onclick="ReviseHospital( '<%= A_Name %>', '<%=hospital.getId()%>'); return false;">修改信息</button>
       </div>
     </div>
     <% } %>
