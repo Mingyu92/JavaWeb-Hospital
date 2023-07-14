@@ -11,31 +11,8 @@
 <html>
 <head>
   <title>修改预约信息</title>
+  <link rel="stylesheet" href="css/leave.css">
   <style>
-    .welcome-admin {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-    }
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      min-width: 160px;
-      z-index: 1;
-    }
-    .dropdown-content a {
-      color: black;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-    }
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
     ul.navbar {
       list-style-type: none;
       margin: 0;
