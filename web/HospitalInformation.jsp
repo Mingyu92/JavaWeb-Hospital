@@ -13,32 +13,7 @@
   <title>修改医院信息</title>
   <link rel="stylesheet" href="css/navbar.css">
   <link rel="stylesheet" href="css/thead.css">
-  <style>
-    .welcome-admin {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-    }
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      min-width: 160px;
-      z-index: 1;
-    }
-    .dropdown-content a {
-      color: black;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-    }
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-  </style>
+  <link rel="stylesheet" href="css/leave.css">
 </head>
 <body>
 <h1>桂林市医院统一预约挂号服务平台</h1>
